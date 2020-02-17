@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="SalesApp.views.TargetDetailPage"
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             Title="Sales Target Detail" >
+    <ContentPage.Content>
+
+    <ScrollView>
+            <StackLayout Padding="0,0,0,0" BackgroundColor="#F0EEEF">
+
+                  <Grid BackgroundColor="#363E4B" Padding="5,5,5,5">
+                    
+                   <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".10*"/>
+                        <ColumnDefinition Width=".80*"/>
+                            <ColumnDefinition Width=".10*"/>
+                    </Grid.ColumnDefinitions>
+                                       
+                    <StackLayout Grid.Column="0">
+                        <Image x:Name="backImg"  Source="barrow108.png" Margin="0,5,0,5" WidthRequest="24" HeightRequest="24"  />
+                    </StackLayout>
+
+                    <StackLayout Grid.Column="1">
+                        <Label Text="Sales Target Detail" x:Name="HideLbl" Margin="0,2,0,0" HorizontalOptions="Center" FontSize="Medium" FontAttributes="Bold" TextColor="White" />
+                    </StackLayout>
+
+                    <StackLayout Grid.Column="2">
+                       <!--  <Image x:Name="toolImg"  Source="edittool.png"  WidthRequest="24" HeightRequest="24"  />-->
+                    </StackLayout>
+                  
+               </Grid>
+
+    <StackLayout BackgroundColor="#F0EEEF">
+                
+           <StackLayout Padding="10" BackgroundColor="#F0EEEF">
+
+                    <StackLayout>
+                        <Label Text="Name" TextColor="#363E4B" FontAttributes="Bold" FontSize="Medium" />
+                        <Label Text=""  x:Name="name_val" FontSize="Medium"  TextColor="Black" Margin="10,0,0,0" />
+
+                    </StackLayout>
+
+                       <BoxView HeightRequest="5" BackgroundColor="Transparent"/>
+
+                    <StackLayout>
+                        <Label Text="Commission Type" TextColor="#363E4B" FontAttributes="Bold" FontSize="Medium" />
+                        <Label Text="" x:Name="com_val"  FontSize="Medium" TextColor="Black"  Margin="10,0,0,0"/>
+                    </StackLayout>
+
+                    <BoxView HeightRequest="20" BackgroundColor="Transparent"/>
+
+                        <StackLayout BackgroundColor="White" x:Name="tab2borderstack">
+                        <Button  Text="Targets" x:Name="tab2" BackgroundColor="White" TextColor="Black"  />    
+                       </StackLayout>
+                    
+
+                     <Grid BackgroundColor="#128197"  x:Name="orderLineList" >
+                            
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".30*"/>
+                        <ColumnDefinition Width=".30*"/>
+                        <ColumnDefinition Width=".40*"/>
+                    </Grid.ColumnDefinitions>
+                            
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="0"  HorizontalOptions="Start" BackgroundColor="White"/>
+                    <Label Grid.Row="0" Grid.Column="0" Text="Min Target"  TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="0"  HorizontalOptions="End" BackgroundColor="White"/>
+
+                    <Label Grid.Row="0" Grid.Column="1" Text="Max Target" TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="1"  HorizontalOptions="End" BackgroundColor="White"/>
+                   
+                    <Label Grid.Row="0" Grid.Column="2" Text="Commission Amt" TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HorizontalTextAlignment="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="2"  HorizontalOptions="End" BackgroundColor="White"/>
+                   
+                     </Grid>
+
+            </StackLayout> 
+
+
+                <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" x:Name="OrderLineList1" Padding="10,0,10,0">
+                    <ListView SeparatorColor="Blue"   x:Name="targetListview" HasUnevenRows="true" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                                <ViewCell Tapped="ViewCell_Tapped">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width=".30*"/>
+                                            <ColumnDefinition Width=".30*"/>
+                                            <ColumnDefinition Width=".40*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <StackLayout Grid.Column="0">                                           
+                                        <Label x:Name="mintarget"  Text="{Binding min_target}" Margin="5" TextColor="#102b1e"  HorizontalOptions="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"/>
+                                        </StackLayout>
+                                        <StackLayout Grid.Column="1">
+                                            <Label  x:Name="maxtarget"  Text="{Binding max_target}" TextColor="#102b1e" Margin="5" HorizontalOptions="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"/>
+                                            </StackLayout>
+                                        <StackLayout Grid.Column="2">
+                                            <Label   Text="{Binding amount}" Margin="5" TextColor="#102b1e" HorizontalOptions="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"/>
+                                            </StackLayout>
+                                                </Grid>
+                                            </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackLayout>
+
+
+                
+              </StackLayout>   
+                </StackLayout>
+           
+    </ScrollView>
+
+        
+    </ContentPage.Content>
+</pages:PopupPage>

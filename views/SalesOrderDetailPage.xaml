@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SalesApp.views.SalesOrderDetailPage"
+             Title="                  CRM"  BackgroundColor="White" >
+    <ContentPage.ToolbarItems >
+        <ToolbarItem Icon="test.png" Activated="ToolbarItem_Activated_1"  Priority="4"></ToolbarItem>
+        <ToolbarItem Icon="test.png" Activated="ToolbarItem_Activated_2"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="10">
+
+                <BoxView HeightRequest="5"/>
+             
+                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" >
+                  
+                    <Image Source="circlebig.png" WidthRequest="40" HeightRequest="40" HorizontalOptions="StartAndExpand" />
+                    <Label Text="New" Margin="10,7,0,0"  FontSize="Medium" />
+                </StackLayout>
+                
+                <BoxView HeightRequest="10"/>
+
+                <StackLayout Orientation="Vertical"  >
+
+                    <Label Text="Customer" x:Name="cust"   FontSize="Medium" />
+                    <Entry  x:Name="CName" Margin="10,0,0,0" Placeholder="Sample" PlaceholderColor="DarkGray" FontSize="Medium" />
+                </StackLayout>
+
+                <BoxView HeightRequest="5"/>
+
+                <StackLayout Orientation="Vertical"  >
+
+                    <Label Text="Invoice Address" x:Name="IvAddr"   FontSize="Medium" />
+                    <Entry   Margin="10,0,0,0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Placeholder="Sample" PlaceholderColor="DarkGray" FontSize="Medium" />
+                </StackLayout>
+
+                <BoxView HeightRequest="5"/>
+
+                <StackLayout Orientation="Vertical" >
+
+                    <Label Text="Delivery Address" x:Name="DelAddr"   FontSize="Medium" />
+                    <Entry  Margin="10,0,0,0" Placeholder="Sample" VerticalOptions="FillAndExpand" PlaceholderColor="DarkGray" FontSize="Medium" />
+                </StackLayout>
+
+                <BoxView HeightRequest="5"/>
+                
+                <StackLayout Orientation="Vertical" >
+
+                    <Label Text="Quotation Template" x:Name="QTemp"   FontSize="Medium" />
+                    <Picker Margin="10,0,0,0" HorizontalOptions="FillAndExpand" Title="Sample"  >
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Sample 1</x:String>
+                                
+                            </x:Array>
+                        </Picker.ItemsSource> 
+                    </Picker>
+                </StackLayout>
+                
+
+                <BoxView HeightRequest="5"/>
+
+                <StackLayout Orientation="Vertical" >
+
+                    <Label Text="Order Date" x:Name="ODate"   FontSize="Medium" />
+                    <DatePicker Margin="10,0,0,0" HorizontalOptions="FillAndExpand"   TextColor="LightGray"/>
+                </StackLayout>
+
+                <BoxView HeightRequest="5"/>
+                
+                <StackLayout Orientation="Vertical" >
+
+                    <Label Text="Expiration Date" x:Name="EDate"   FontSize="Medium" />
+                    <DatePicker Margin="10,0,0,0" HorizontalOptions="FillAndExpand"   TextColor="LightGray"/>
+                </StackLayout>
+
+                <BoxView HeightRequest="5"/>
+
+                <StackLayout Orientation="Vertical" >
+
+                    <Label Text="Price List" x:Name="PList"   FontSize="Medium" />
+                    <Picker Margin="10,0,0,0" HorizontalOptions="FillAndExpand" Title="Sample"   >
+
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Sample 1</x:String>
+                               
+                            </x:Array>
+                        </Picker.ItemsSource> >
+                    </Picker>
+
+                </StackLayout>
+
+                <BoxView HeightRequest="5"/>
+
+                <StackLayout Orientation="Vertical" >
+
+                    <Label Text="Payment Terms" x:Name="PTerms"   FontSize="Medium" />
+                    <Picker Margin="10,0,0,0"  HorizontalOptions="FillAndExpand" Title="Sample"   >
+
+                        <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Sample 1</x:String>
+                               
+                           </x:Array>
+                        </Picker.ItemsSource> >
+                    </Picker>
+                </StackLayout>
+
+                <BoxView HeightRequest="5"/>
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Padding="5, 5, 5, 0">
+
+                    <Button Text="Cancel" TextColor="White" BackgroundColor="#fb8194" FontSize="Small" HorizontalOptions="CenterAndExpand" />
+                    <Button Text="Save" TextColor="White"  BackgroundColor="#f4d51e"  FontSize="Small" HorizontalOptions="CenterAndExpand" />
+                </StackLayout>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

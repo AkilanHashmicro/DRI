@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="SalesApp.Pages.ApplyProManPopupPage"
+            xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup">
+
+  <ContentPage.Content>
+        <ScrollView x:Name="scroll" Padding="0,20,0,0" >
+
+
+               <Grid Padding="10"  >
+
+                 <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="9*"/>                        
+                    </Grid.ColumnDefinitions>
+
+    <Frame
+        x:Name="FrameContainer"            
+        HorizontalOptions="CenterAndExpand"
+            VerticalOptions="CenterAndExpand"
+            Padding="0,5,0,0" CornerRadius="5" >    
+
+        <StackLayout  Padding="10" HeightRequest="200" WidthRequest="700" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand">
+
+        <StackLayout Padding="5">
+            <Label  Text="Sale Promotions" HorizontalOptions="CenterAndExpand" FontSize="Medium" FontAttributes="Bold" TextColor="#128197"    />    
+         </StackLayout>
+
+                             <BoxView   VerticalOptions="Center"
+           HorizontalOptions="Center"
+           HeightRequest="1"
+           WidthRequest="50"  
+           Color="#5b5d68"></BoxView>
+
+           <BoxView HeightRequest="5" BackgroundColor="Transparent"/>
+
+            <StackLayout >
+            <Label  Text="Discounts :"  FontSize="Medium" FontAttributes="Bold" TextColor="Black"  />    
+         </StackLayout>            
+                        
+           <StackLayout Padding="5">              
+             <Picker x:Name="manpicker" />
+          </StackLayout>
+                        
+           <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Padding="5, 5, 5, 0" x:Name="update_stack">                         
+                        <Button Text="Apply" TextColor="White"  BackgroundColor="#128197"  FontSize="Small" HorizontalOptions="CenterAndExpand" Clicked="apply_clickedAsync" />
+                        <Button Text="Cancel" TextColor="Black" BackgroundColor="White" FontSize="Small" HorizontalOptions="CenterAndExpand" Clicked="cancel_Clicked"/>
+           </StackLayout>
+                        
+        </StackLayout>
+   </Frame>
+
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</pages:PopupPage>
+
+                        

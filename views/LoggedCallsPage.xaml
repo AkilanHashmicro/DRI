@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="SalesApp.views.LoggedCallsPage" Title="Logged Calls">
+    <ContentPage.Content>
+        <ScrollView>
+        <StackLayout Padding="0,0,0,0" x:Name="overstack">
+
+     <ListView x:Name="logListView"  BackgroundColor="#F0EEEF"  HasUnevenRows="true" IsPullToRefreshEnabled="true"  >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell Tapped="ViewCell_Tapped">
+
+                                <Frame BackgroundColor="#FFFFFF" HasShadow="True" Margin="5,5,5,0" CornerRadius="6"  >
+                                    <StackLayout Padding="0,0,0,0">
+                                    
+                                    <!--<StackLayout VerticalOptions="FillAndExpand" Orientation="Vertical" Padding="5,10,5,5" BackgroundColor="#fff">-->
+                                        <Grid  Padding="0,0,0,0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width=".75*" />
+                                                <ColumnDefinition Width=".20*" />
+                                                <ColumnDefinition Width=".05*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Label Text="{Binding opportunity_name}"  FontSize="Medium" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" VerticalTextAlignment="Center"  TextColor="Black"/>
+                                            <Image Source="telephone.png" Grid.Row="0" Grid.Column="2" HeightRequest="15" HorizontalOptions="Start"/>
+                                          <Label Text="{Binding partner_phone}" FontSize="Micro" Grid.Row="0" Grid.Column="1" FontAttributes="Bold" HorizontalOptions="EndAndExpand" VerticalTextAlignment="Center" TextColor="Black"/>
+                                        </Grid>
+
+                                        <BoxView HeightRequest="2"/>
+                                    
+                     <Grid  Padding="0,0,0,0">
+                                            <Grid.ColumnDefinitions>                                              
+                                                <ColumnDefinition Width=".75*" />
+                                                <ColumnDefinition Width=".20*" />
+                                                <ColumnDefinition Width=".05*" />
+                                            </Grid.ColumnDefinitions>
+                                           
+                                            <Label Text="{Binding date}"  FontSize="Small" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" VerticalTextAlignment="Center" TextColor="#363E4B"/>
+                                            <Image Source="timer.png" Grid.Row="0" Grid.Column="2" HeightRequest="15" HorizontalOptions="Start"/>                                            
+                                            <Frame CornerRadius="5" BackgroundColor="#4a945f" Grid.Row="0" Grid.Column="1" HeightRequest="3" Padding="0"  HorizontalOptions="EndAndExpand">
+                                                        <Label Margin="4" Text="{Binding duration}" FontSize="Micro" FontAttributes="Bold" HorizontalOptions="EndAndExpand" VerticalTextAlignment="Center" TextColor="White"/>
+                                                    </Frame>
+                                         <!-- <Label Text="{Binding duration}" FontSize="Micro" Grid.Row="0" Grid.Column="1" FontAttributes="Bold" HorizontalOptions="EndAndExpand" VerticalTextAlignment="Center" TextColor="Black"/>-->
+                                        </Grid> 
+                                        </StackLayout>
+                                    </Frame>
+                                
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+              </StackLayout> 
+        </ScrollView>
+        
+    </ContentPage.Content>
+</ContentPage>

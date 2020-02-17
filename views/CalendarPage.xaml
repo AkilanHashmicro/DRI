@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SalesApp.views.CalendarPage"
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfCalendar.XForms;assembly=Syncfusion.SfCalendar.XForms"
+             Title="          My Schedule"  BackgroundColor="#F0EEEF">
+ 
+        <ContentPage.ToolbarItems>
+            <ToolbarItem Icon="plus24.png" Activated="Toolbar_Filter_Activated" Priority="4"></ToolbarItem>
+            <!--<ToolbarItem Icon="search.png"  Activated="Toolbar_Search_Activated"></ToolbarItem>-->
+        </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+
+        <StackLayout>        
+        <StackLayout Padding="10">
+                <syncfusion:SfCalendar x:Name="calendar"  ShowInlineEvents="false"  OnCalendarTapped="Calendar_OnCalendarTapped" MonthChanged="calendar_MonthChangedAsync"/>
+        </StackLayout>
+
+                        <StackLayout BackgroundColor="Transparent" Orientation="Vertical"  Padding="15,0,0,0">
+                            <Label  x:Name="SelectDate" Text="My Schedule" IsEnabled="False" TextColor="Black" FontSize="Medium"/>
+                        </StackLayout>
+
+                        <ListView x:Name="CalendarListView" HasUnevenRows="True" SeparatorColor="White" ItemTapped="CalendarListView_ItemTapped" Margin="5,0,5,0">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell Tapped="ViewCellPending_Tapped">
+                            
+                                        <Frame  Padding="1,1,1,1" BackgroundColor="#363E4B" Margin="5" >
+                                
+                                <StackLayout BackgroundColor="White">
+
+                                   <Grid Padding="5,0,5,0">                                
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width=".85*"/>
+                                        <ColumnDefinition Width=".15*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    
+                                    <StackLayout Grid.Column="0" >                                      
+                                        <Label Text="{Binding meeting_subject}" TextColor="#363E4B" FontAttributes="Bold" FontSize="Small" />                                      
+                                    </StackLayout>
+                                        
+                                      <StackLayout Grid.Column="1"  >                                                                                               
+                                                 <Label Text="{Binding allDay}"  FontSize="Small" TextColor="#128197" FontAttributes="Bold"/>
+                                       </StackLayout>                                        
+                                    </Grid>
+                                
+                                            <StackLayout Padding="5,0,0,15" >
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label TextColor="#363E4B" Text="{Binding showStart, StringFormat='{0:MMMM d, HH:mm tt}'}"/>
+                                            <Label Text=" - "/>
+                                            <Label TextColor="#363E4B" Text="{Binding showStop, StringFormat='{0:MMMM d, HH:mm tt}'}"/>
+                                        </StackLayout>
+                                                
+                                                <Label TextColor="#363E4B" Text="{Binding location}"/>
+                                            </StackLayout> 
+                                    
+                                    </StackLayout>     
+                                
+                                        </Frame>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+
+               <!-- </StackLayout>
+            </StackLayout>-->
+        
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="SalesApp.Pages.ApplyPromotionsPopupPage"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup">
+
+     <ScrollView
+    HorizontalOptions="End"
+    VerticalOptions="Start">
+        <AbsoluteLayout>
+
+
+                        <Frame
+                    x:Name="FrameContainer"
+                    Margin="10,140,10,0"
+                    HorizontalOptions="Start"
+                    BackgroundColor="White"  CornerRadius="5">
+
+                
+                <StackLayout IsClippedToBounds="True" Padding="5,0,5,0" Spacing="3" x:Name="mainlayout"  HeightRequest="150" WidthRequest="200" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand">
+
+                    
+                  <Grid x:Name="daysGrid">
+                      <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width=".80*"/>
+                            <ColumnDefinition Width=".20*"/>
+                        </Grid.ColumnDefinitions>                                                                             
+                        <Label Margin="10, 5" Grid.Column="0" Text="Manually" TextColor="Black" />
+                         <Image Source="imgradioemp.png"  WidthRequest="20" HeightRequest="15"  Grid.Column="1" x:Name="manualempimg"  />                                         
+                        <Image Source="rbtn2.png" WidthRequest="10" HeightRequest="10"  Grid.Column="1" x:Name="manualfillimg" IsVisible="false" />                                    
+                     
+                  </Grid>
+
+                    <BoxView HeightRequest="10" Color="Transparent"/>
+
+                  <Grid x:Name="monthGrid">
+                      <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width=".80*"/>
+                            <ColumnDefinition Width=".20*"/>
+                        </Grid.ColumnDefinitions>                                                                             
+                        <Label Margin="10, 5" Grid.Column="0" Text="Automatically" TextColor="Black" />
+                        <Image Source="imgradioemp.png"  WidthRequest="20" HeightRequest="15"  Grid.Column="1" x:Name="autoempimg" />
+                          <Image Source="rbtn2.png" WidthRequest="10" HeightRequest="10"  Grid.Column="1" x:Name="autofillimg" IsVisible="true" />                           
+                      
+                  </Grid>
+
+                    <BoxView HeightRequest="10" Color="Transparent"/>
+
+                   
+                   <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Padding="5, 5, 5, 0" x:Name="update_stack">                         
+                        <Button Text="Apply" TextColor="White"  BackgroundColor="Black"  FontSize="Small" HorizontalOptions="CenterAndExpand" Clicked="save_ClickedAsync" />
+                        <Button Text="Cancel" TextColor="White" BackgroundColor="Black" FontSize="Small" HorizontalOptions="CenterAndExpand" Clicked="cancel_Clicked"/>
+                    </StackLayout>
+         
+                </StackLayout>
+                
+            </Frame>
+            <ContentView
+         
+          AbsoluteLayout.LayoutFlags="PositionProportional"
+                AbsoluteLayout.LayoutBounds=".5,0,100,25">>
+                <!--<ContentView.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnCloseButtonTapped"/>
+                 AbsoluteLayout.LayoutFlags ="All"
+                </ContentView.GestureRecognizers>-->
+
+            </ContentView>
+        </AbsoluteLayout>
+    </ScrollView>
+</pages:PopupPage>

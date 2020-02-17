@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="SalesApp.views.CRMOpportunityCreationPage1" 
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 xmlns:local ="clr-namespace:SalesApp;assembly=SalesApp"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup">
+    <ContentPage.Content>
+        <ScrollView Padding="0,50,0,0">
+
+
+             <Grid Padding="10" BackgroundColor="Transparent">
+
+                 <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="9*"/>                        
+                    </Grid.ColumnDefinitions>
+
+
+                      <Frame
+        x:Name="FrameContainer"            
+        HorizontalOptions="Center"
+            VerticalOptions="Center"
+            Padding="0,5,0,0" CornerRadius="20" BackgroundColor="#F0EEEF">
+                
+            
+        <StackLayout BackgroundColor="#F0EEEF" Padding="10">
+                
+              <!--  <StackLayout BackgroundColor="#414141" x:Name="back" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="5">
+                    <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">                      
+                        <Label Text="CRM Opportunities" x:Name="HideLbl" Margin="15,5,0,5" HorizontalOptions="Center" FontSize="Medium" TextColor="White" />
+                    </StackLayout>
+                </StackLayout>-->
+
+          <StackLayout Padding="10,0,0,0">  
+
+
+                    <StackLayout HorizontalOptions="End" Padding="5,5,5,0" >
+                        <Image Source="cancel.png" x:Name="overall_close" WidthRequest="20" HeightRequest="20" />
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Padding="0,10,0,0" >
+                        <Label Text="Opportunities Creation" TextColor="#102b1e"  FontSize="Large" />
+                    </StackLayout>
+
+                     <BoxView   VerticalOptions="Center"
+           HorizontalOptions="Center"
+           HeightRequest="1"
+           WidthRequest="50"  
+           Color="#5b5d68"></BoxView>
+                        
+
+                   
+                        <StackLayout  >
+                            <Label Text="Title" TextColor="#102b1e" FontAttributes="Bold"/>
+                             <Entry  Margin="10,0,10,0" x:Name="oppTitle" Text="" Placeholder="" HorizontalOptions="FillAndExpand" FontSize="Medium"/>                            
+                        </StackLayout>
+                                     
+
+                <StackLayout  >
+                    <Label  Text="Expected Revenue" TextColor="#102b1e" FontAttributes="Bold"  Margin="0,10" FontSize="Small"/>
+                </StackLayout>
+
+                <StackLayout >
+                    <Entry  Margin="10,0,10,0" x:Name="exRev" Text="0"  Keyboard="Numeric" HorizontalOptions="FillAndExpand" FontSize="Medium"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label  Text="Probability"  TextColor="#102b1e" FontAttributes="Bold" FontSize="Small"/>
+                </StackLayout>
+
+                <StackLayout Padding="10,0,10,0" >
+                    <Entry   x:Name="prob_entry" Text="0" Keyboard="Numeric" Placeholder="" HorizontalOptions="FillAndExpand" FontSize="Medium"/>
+                </StackLayout>
+
+                 <Grid Padding="10,0,10,0" x:Name="prob_alert"  IsVisible="false">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="8*" />
+                                </Grid.ColumnDefinitions>
+                 <Image x:Name="probAlert"  Source="emptyAlert.png" WidthRequest="18" HeightRequest="18" HorizontalOptions="Start" Grid.Row="0" Grid.Column="0"/>
+                 
+                 <Label x:Name="probAlertText" Text="Probability should be 0-100" FontSize="Micro" TextColor="#ce434a" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Start"/>
+                                             
+                </Grid>
+                            
+             <StackLayout x:Name="cusGrid">
+
+                     <Label Text="Customer" TextColor="#102b1e" FontAttributes="Bold" FontSize="Small" VerticalTextAlignment="Center"/>
+                 <StackLayout  >
+                     <Grid >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width=".9*" />
+                                    <ColumnDefinition Width=".1*" />
+                                </Grid.ColumnDefinitions> 
+                                    
+                   <StackLayout Grid.Column="0">
+                                
+                              <Entry  Text=""  Margin="0,0,-30,0"  x:Name="searchprod" InputTransparent="true" />
+
+         <StackLayout.GestureRecognizers>
+          <TapGestureRecognizer
+        Tapped="customerentry"
+        NumberOfTapsRequired="1">
+        </TapGestureRecognizer>
+        </StackLayout.GestureRecognizers>
+
+                   </StackLayout>
+
+                                <StackLayout Grid.Column="1" >
+                                <Image x:Name="cusdropimg1" Source="drdown.png" WidthRequest="10" HeightRequest="10" Margin="0,15,0,0" />                        
+                                </StackLayout>
+                          </Grid>
+                </StackLayout>
+              
+               <BoxView Color="Transparent" HeightRequest="5"/>
+                                
+           </StackLayout>
+
+
+                            <StackLayout >
+                    <Label  Text="Sales Person" FontAttributes="Bold" TextColor="#102b1e" FontSize="Small"/>
+                </StackLayout>
+
+                <StackLayout Padding="10,0,0,0">
+                     <Grid >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="8*" />
+                                    <ColumnDefinition Width="1*" />
+                                </Grid.ColumnDefinitions> 
+                                <Picker Grid.Column="0"  Margin="0,0,-30,0"  x:Name="salesperson_Picker"  />  
+                            <StackLayout Grid.Column="1" >
+                                <Image  Source="drdown.png" WidthRequest="10" HeightRequest="10" Margin="0,15,0,0" />                        
+                                </StackLayout>
+                          </Grid>
+                </StackLayout>
+                              
+                    
+                <StackLayout  >
+                    <Label  Text="Sales Team"  TextColor="#102b1e" FontAttributes="Bold" FontSize="Small"/>
+                </StackLayout>
+
+                <StackLayout Padding="10,0,0,0">
+                     <Grid >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="8*" />
+                                    <ColumnDefinition Width="1*" />
+                                </Grid.ColumnDefinitions> 
+                                <Picker Grid.Column="0"  Margin="0,0,-30,0" Title="Sample" x:Name="salesteam_Picker"  />  
+                            <StackLayout Grid.Column="1" >
+                                <Image  Source="drdown.png" WidthRequest="10" HeightRequest="10" Margin="0,15,0,0" />                        
+                                </StackLayout>
+                          </Grid>
+                </StackLayout>
+
+
+                              <StackLayout >
+                    <Label  Text="Next Activity" TextColor="#102b1e" FontAttributes="Bold" FontSize="Small"/>
+                </StackLayout>
+
+                <StackLayout >
+                     <Grid >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="8*" />
+                                    <ColumnDefinition Width="1*" />
+                                </Grid.ColumnDefinitions> 
+                                <Picker Grid.Column="0"  Margin="0,0,-30,0" Title="Sample" x:Name="nextActPicker"  />  
+                            <StackLayout Grid.Column="1" >
+                                <Image  Source="drdown.png" WidthRequest="10" HeightRequest="10" Margin="0,20,0,0" />                        
+                                </StackLayout>
+                          </Grid>
+                </StackLayout>
+
+
+                 <StackLayout  >
+                    <Label TextColor="#102b1e" FontAttributes="Bold" Text="Next Activity Date"  FontSize="Small"/>
+                </StackLayout>
+
+                <StackLayout >
+                     <Grid >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="8*" />
+                                    <ColumnDefinition Width="1*" />
+                                </Grid.ColumnDefinitions> 
+                                <DatePicker Grid.Column="0"  Margin="0,0,-30,0"  x:Name="nextActDatePicker"  />  
+                            <StackLayout Grid.Column="1" >
+                                <Image  Source="drdown.png" WidthRequest="10" HeightRequest="10" Margin="0,20,0,0" />                        
+                                </StackLayout>
+                          </Grid>
+                </StackLayout>
+
+
+                             <StackLayout  >
+                    <Label  Text="Expected Closing"  TextColor="#102b1e" FontAttributes="Bold" FontSize="Small"/>
+                </StackLayout>
+
+                <StackLayout Padding="10,0,0,0">
+                     <Grid >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="8*" />
+                                    <ColumnDefinition Width="1*" />
+                                </Grid.ColumnDefinitions> 
+                                <DatePicker Grid.Column="0"  Margin="0,0,-30,0"  x:Name="expected_closing_Picker"  />  
+                            <StackLayout Grid.Column="1" >
+                                <Image  Source="drdown.png" WidthRequest="10" HeightRequest="10" Margin="0,15,0,0" />                        
+                                </StackLayout>
+                          </Grid>
+                </StackLayout>
+                            
+     
+
+                <StackLayout  >
+                    <Label TextColor="#102b1e" FontAttributes="Bold" Text="Email" FontSize="Small"/>
+                </StackLayout>
+
+                <StackLayout Padding="10,0,0,0" >
+                    <Entry  x:Name="eMail" Text="" Placeholder="Your e-mail" HorizontalOptions="FillAndExpand" FontSize="Medium"/>
+                </StackLayout>
+
+           
+
+                <StackLayout >
+                    <Label  Text="Phone" TextColor="#102b1e" FontAttributes="Bold" FontSize="Small"/>
+                </StackLayout>
+
+                <StackLayout >
+                    <Entry   x:Name="phone" Text="" Keyboard="Telephone" Placeholder="your phone" HorizontalOptions="FillAndExpand" FontSize="Medium"/>
+                </StackLayout>
+
+            
+                <BoxView Color="Transparent" HeightRequest="5"/>
+
+
+
+             
+
+<!--                </Grid>-->
+
+                  <!--   <Grid>
+                    <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"></ColumnDefinition>
+                    <ColumnDefinition Width="6*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>-->
+
+              
+
+
+         <!--            <Grid>
+                    <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"></ColumnDefinition>
+                    <ColumnDefinition Width="6*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>-->
+
+                <StackLayout  >
+                    <Label  Text="Next Activity Summary" TextColor="#102b1e" FontAttributes="Bold"  FontSize="Small"/>
+                </StackLayout>
+
+                <StackLayout  >
+                    <Entry   x:Name="nextActSum" Text="" Placeholder="Sample" HorizontalOptions="FillAndExpand" FontSize="Medium"/>
+                </StackLayout>
+
+              <!--  </Grid>-->
+
+         
+                        
+                  <!--  <Grid>
+                     <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"></ColumnDefinition>
+                    <ColumnDefinition Width="6*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>-->
+
+              
+
+             
+                    
+
+              <!--  <Grid>
+                    <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"></ColumnDefinition>
+                    <ColumnDefinition Width="6*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>-->
+
+                <StackLayout  >
+                    <Label  Text="Stage" TextColor="#102b1e" FontAttributes="Bold" FontSize="Small"/>
+                </StackLayout>
+
+                <StackLayout  >
+                     <Grid >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="8*" />
+                                    <ColumnDefinition Width="1*" />
+                                </Grid.ColumnDefinitions> 
+                                <Picker Grid.Column="0"  Margin="0,0,-30,0" Title="Sample" x:Name="stagePicker"  />  
+                            <StackLayout Grid.Column="1" >
+                                <Image  Source="drdown.png" WidthRequest="10" HeightRequest="10" Margin="0,20,0,0" />                        
+                                </StackLayout>
+                          </Grid>
+                </StackLayout>
+
+                               
+                <BoxView Color="Transparent" HeightRequest="5"/>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="4*" />
+                        <ColumnDefinition Width="6*" />
+                    </Grid.ColumnDefinitions>
+                    <StackLayout Padding="0,5,0,0">
+                        <Label  Text="Rating:" TextColor="#102b1e" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" FontSize="Small"/>
+                    </StackLayout>
+
+                    <StackLayout x:Name="emptyRatingLayout3" Padding="1" Orientation="Horizontal"   Grid.Row="0" Grid.Column="1" >
+                    <Image Source="emptystar.png" WidthRequest="20" HeightRequest="15" x:Name="em1" Margin="5"/>
+                            <Image Source="star.png" WidthRequest="20" HeightRequest="15" x:Name="str1" IsVisible="false" Margin="5"/>
+                    <Image Source="emptystar.png" WidthRequest="20" HeightRequest="15" x:Name="em2" Margin="5"/>
+                            <Image Source="star.png" WidthRequest="20" HeightRequest="15" x:Name="str2" IsVisible="false" Margin="5"/>
+                    <Image Source="emptystar.png" WidthRequest="20" HeightRequest="15" x:Name="em3" Margin="5"/>
+                            <Image Source="star.png" WidthRequest="20" HeightRequest="15" x:Name="str3" IsVisible="false" Margin="5"/>
+                            
+                </StackLayout>     
+                    
+                </Grid>
+                <BoxView Color="Transparent" HeightRequest="5"/>
+
+                    <StackLayout Padding="2,2,2,2" BackgroundColor="Black" >                    
+                <StackLayout BackgroundColor="White" >
+
+                 <Grid BackgroundColor="#363E4B">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                <StackLayout Grid.Column="0" x:Name="tab1stack" BackgroundColor="#363E4B"> 
+                         <StackLayout Padding="1,1,1,1" BackgroundColor="#363E4B" x:Name="tab1frame">
+                        <StackLayout BackgroundColor="#363E4B" x:Name="tab1borderstack">
+                    <Button  Text="Internal Notes" x:Name="tab1" BackgroundColor="#363E4B"  TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"  Clicked="Tab1Clicked" />                     
+                     </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    
+                    <StackLayout Grid.Column="1" x:Name="tab2stack" BackgroundColor="White">
+                        <StackLayout Padding="1,1,1,1" BackgroundColor="#363E4B" x:Name="tab2frame">
+                        <StackLayout BackgroundColor="White" x:Name="tab2borderstack">
+                        <Button  Text="Meetings" x:Name="tab2" BackgroundColor="White" TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Clicked="Tab2Clicked" />    
+                       </StackLayout>
+                        </StackLayout>
+                     </StackLayout>
+                   
+                     </Grid>
+                    
+                            </StackLayout>
+                        </StackLayout>
+                     <BoxView Color="Transparent" HeightRequest="15"/>
+
+                                <StackLayout BackgroundColor="Gray" Padding="2" x:Name="notesList"> 
+                    
+                   <!-- <Grid BackgroundColor="#f4f4f4" Padding="1,1,1,1" x:Name="notesList" >-->
+                        
+                  <!--  <BoxView Color="Transparent" HeightRequest="20"/>-->
+
+                             <StackLayout BackgroundColor="White">
+
+                  <local:EditorXF  HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand"  x:Name="comments">
+                 </local:EditorXF>
+                                </StackLayout>
+                            </StackLayout>
+                  <!--  </Grid>-->
+
+                    <StackLayout x:Name="meetingsList" IsVisible="false">
+                    
+                      <Grid BackgroundColor="#128197" Padding="1,1,1,1"   >
+
+                       <BoxView Color="Transparent" HeightRequest="20"/>
+                        
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".40*"/>
+                        <ColumnDefinition Width=".40*"/>
+                        <ColumnDefinition Width=".20*"/>
+
+                    </Grid.ColumnDefinitions>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="0"  HorizontalOptions="Start" BackgroundColor="White"/>
+                    <Label Margin="15,0,0,0" Grid.Row="0" Grid.Column="0" x:Name="sub" Text="Subject" TextColor="White" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="0"  HorizontalOptions="End" BackgroundColor="White"/>
+
+                    <Label Margin="15,0,0,0" Grid.Row="0" Grid.Column="1" Text="Location" TextColor="White" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" x:Name="loc" Grid.Column="1"  HorizontalOptions="End" BackgroundColor="White"/>
+                   
+                    <Label Grid.Row="0" Grid.Column="2" Text="Duration" TextColor="White" HorizontalOptions="StartAndExpand" VerticalOptions="Center" HorizontalTextAlignment="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="2" x:Name="dur"  HorizontalOptions="End" BackgroundColor="White"/>
+                   
+                </Grid>
+
+                        <Grid  x:Name="meetingsListGrid" >
+                    <ListView SeparatorColor="Blue" x:Name="meetingsListview" VerticalOptions="FillAndExpand" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                                <ViewCell>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width=".40*"/>
+                                            <ColumnDefinition Width=".40*"/>
+                                            <ColumnDefinition Width=".20*"/>
+                                        </Grid.ColumnDefinitions>
+                                                                                
+                                        <Label x:Name="lsub" Grid.Column="0" TextColor="Black" Text="{Binding subject}" Margin="2,0" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand"  VerticalTextAlignment="Center"/>                                                                              
+                                            <Label  x:Name="lloc" Grid.Column="1" TextColor="Black" Text="{Binding location}" Margin="2,0" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"/>                                                                                    
+                                            <Label Grid.Column="2"  Text="{Binding duration}" Margin="2,0" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand"  VerticalTextAlignment="Center"/>
+                                         </Grid>
+                                            </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </Grid>
+
+                 <StackLayout Padding="20,0,0,0">
+                    <Image x:Name="AddAirCon" Source="plusyellow.png" WidthRequest="25" HeightRequest="25" HorizontalOptions="Start"/>
+                </StackLayout>
+                        
+                        </StackLayout>
+
+                <Grid Padding="10" RowSpacing="20" x:Name="addMeetings" IsVisible="false">                   
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width=".30*"/>
+                    <ColumnDefinition Width=".70*"/>
+                </Grid.ColumnDefinitions>
+
+                 <Label Text="Subject" Margin="0,10,0,0" TextColor="#363E4B" FontAttributes="Bold" FontSize="Small" Grid.Row="0" Grid.Column="0" VerticalTextAlignment="Center"/>
+                <Entry x:Name="sub1" Text=""  FontSize="Small" TextColor="Black" Grid.Row="0" Grid.Column="1" />
+
+                <Label Text="Start Date" TextColor="#363E4B" FontAttributes="Bold" FontSize="Small" Grid.Row="1" Grid.Column="0" VerticalTextAlignment="Center"/>
+                <DatePicker x:Name="sDate"  Grid.Row="1" Grid.Column="1" />
+
+                <Label Text="End Date" TextColor="#363E4B" FontAttributes="Bold" FontSize="Small" Grid.Row="2" Grid.Column="0" VerticalTextAlignment="Center"/>
+                <DatePicker x:Name="eDate"  Grid.Row="2" Grid.Column="1" />               
+
+                <Label Text="Location" Margin="0,5,0,0" TextColor="#363E4B" FontAttributes="Bold" FontSize="Small" Grid.Row="3" Grid.Column="0" VerticalTextAlignment="Center"/>
+                <Entry x:Name="loc1" Text=""   FontSize="Small" TextColor="Black" Grid.Row="3" Grid.Column="1" />
+
+                <Label Text="Duration" TextColor="#363E4B" FontAttributes="Bold" FontSize="Small" Grid.Row="4" Grid.Column="0" VerticalTextAlignment="Center"/>
+                <Entry x:Name="Dur1" Text=""  Keyboard="Numeric"  FontSize="Small" TextColor="Black" Grid.Row="4" Grid.Column="1" />
+                        
+                </Grid>
+
+                <StackLayout x:Name="atnstack" IsVisible="false">
+                <Label Text="Attendees" TextColor="#102b1e" FontAttributes="Bold" FontSize="Small"  VerticalTextAlignment="Center" Margin="10,0"/>
+                    
+                      <Frame Padding="10,0,10,0" CornerRadius="20" BackgroundColor="#363E4B"> 
+                     <ListView x:Name="attnListView" SeparatorColor="#FFA212" BackgroundColor="#363E4B"  >
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>     
+                                                   
+                                         <Grid>                                            
+                                        <Grid.ColumnDefinitions>
+                                      <ColumnDefinition Width=".8*"/>
+                                      <ColumnDefinition Width=".2*"/>
+                                     
+                                        </Grid.ColumnDefinitions>  
+
+                                                       
+
+                                       <Label Grid.Column="0" Text="{Binding name}" FontSize="Small" Margin="5,0,0,0" FontAttributes="Bold" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" TextColor="White"/>                                                                                                     
+
+                                             <Image Grid.Column="1" x:Name="cancelImg" Source="closewhite.png" WidthRequest="15" HorizontalOptions="End" HeightRequest="15" Margin="5">
+                                                 <Image.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="ListviewcloseClicked" CommandParameter="{Binding .}" />
+                                                        </Image.GestureRecognizers>
+                                                 </Image>
+
+                                                           
+                                        </Grid>                                       
+                                                       
+                                        </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Frame>
+              
+             <!-- <Grid>
+                     <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width=".30*"/>
+                    <ColumnDefinition Width=".70*"/>
+                </Grid.ColumnDefinitions>
+                                
+            <StackLayout Grid.Row="0" Grid.Column="0" Padding="10,0">
+                    <Image x:Name="AddAirCon1" Source="add_icon.png" WidthRequest="25" HeightRequest="25" HorizontalOptions="Start"/>
+             </StackLayout>                        
+            <Picker  x:Name="attnPicker" IsVisible="false" Grid.Row="0" Grid.Column="1" SelectedIndexChanged="myPickerSelectedIndexChanged"/>
+            </Grid>-->
+
+            <StackLayout Padding="10,0">
+                    <Image x:Name="AddAirCon1" Source="plusyellow.png" WidthRequest="25" HeightRequest="25" HorizontalOptions="Start"/>
+             </StackLayout> 
+                        
+             <StackLayout Padding="10,0,10,0">
+                <Picker  x:Name="attnPicker" IsVisible="false" SelectedIndexChanged="myPickerSelectedIndexChanged"/>
+             </StackLayout>
+                        
+             </StackLayout>
+
+                     <BoxView Color="Transparent" HeightRequest="5"/>
+                    
+                     <StackLayout Padding="20,0,0,0" x:Name="addbtnstack" IsVisible="false" HorizontalOptions="Center">
+                    <!--<Image x:Name="AddAirCon1" Source="add_icon.png" WidthRequest="25" HeightRequest="25" HorizontalOptions="Start"/>-->
+                         <Button x:Name="addbtn" Text="Add" BackgroundColor="#363E4B" TextColor="White" Clicked="Button_Add_Clicked1"/>
+                     </StackLayout>
+
+                    <BoxView Color="Transparent" HeightRequest="10"/>
+
+                    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Orientation="Horizontal" x:Name="createStackLayout" IsVisible="false">
+                        <Button Text="Create" HorizontalOptions="StartAndExpand" TextColor="White" BackgroundColor="#128197" Clicked="createClickedAsync"/>
+                        <Button Text="Discard" HorizontalOptions="StartAndExpand" TextColor="Black" BackgroundColor="#F0EEEF"/>
+                    </StackLayout>
+                    
+                </StackLayout>
+            </StackLayout>
+                    </Frame>
+                </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</pages:PopupPage>

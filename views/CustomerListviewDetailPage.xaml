@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SalesApp.views.CustomerListviewDetailPage"
+             Title="Customer Details"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions">
+  <ContentPage.Content>
+    <ScrollView>
+
+      <StackLayout BackgroundColor="#F0EEEF">
+
+        <StackLayout BackgroundColor="#363E4B" x:Name="back" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="5">
+          <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal">
+            <Image x:Name="backImg"  Source="barrow108.png" Margin="10,5,0,5" WidthRequest="24" HeightRequest="24"  />
+            <Label Text="Customer Details" x:Name="HideLbl" Margin="15,3,0,5" HorizontalOptions="Center" FontSize="Large"  TextColor="White" />
+          </StackLayout>
+        </StackLayout>
+        
+        <Image  x:Name="sq_editbtn" VerticalOptions="End" HorizontalOptions="End" Source="sqeditcolor.png" Margin="0,-20,10,0" WidthRequest="50" HeightRequest="50"  />
+        <!--<Image  x:Name="sq_tickbtn" VerticalOptions="End" HorizontalOptions="End" Source="sqtick.png" Margin="0,-20,10,0" WidthRequest="50" HeightRequest="50" IsVisible="false"  />-->
+
+
+        <StackLayout Padding="5" >
+          <StackLayout>
+            <Grid>
+
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=".31*"/>
+                <ColumnDefinition Width=".01*"/>
+                <ColumnDefinition Width=".36*"/>
+                <ColumnDefinition Width=".01*"/>
+                <ColumnDefinition Width=".31*"/>
+              </Grid.ColumnDefinitions>
+
+
+              <Frame Grid.Row="0" Grid.Column="0" Padding="10,5,5,0"  BackgroundColor="#FFA602" CornerRadius="5">
+                <StackLayout>
+
+                  <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer  Tapped="meetingStackClicked" NumberOfTapsRequired="1">
+                    </TapGestureRecognizer>
+                  </StackLayout.GestureRecognizers>
+
+                  <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="#FFA602"  Padding="5,5,0,0">
+                    <Image Source="clockwhite.png" HeightRequest="24" x:Name="meet_image" />
+                    <Label Text="" FontSize="Medium" TextColor="White" x:Name="meeting_text" HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
+                  </StackLayout>
+                  <StackLayout  BackgroundColor="#FFA602">
+                    <Label Text="Meetings" FontSize="Small" TextColor="White" HorizontalTextAlignment="Center" />
+                  </StackLayout>
+
+                </StackLayout>
+              </Frame>
+
+              <StackLayout Grid.Row="0" Grid.Column="1" >
+                <BoxView WidthRequest="1" VerticalOptions="FillAndExpand" Color="Transparent"/>
+              </StackLayout>
+
+              <Frame Grid.Row="0" Grid.Column="2" Padding="5,5,5,0" BackgroundColor="#363E4B" CornerRadius="5">
+                <StackLayout>
+
+                  <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer  Tapped="oppoClicked" NumberOfTapsRequired="1">
+                    </TapGestureRecognizer>
+                  </StackLayout.GestureRecognizers>
+
+                  <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center" Padding="5,5,0,0">
+                    <Image Source="ratestar.png" HeightRequest="24" />
+                    <Label Text="" FontSize="Medium" TextColor="White" x:Name="oppo_text" HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
+                  </StackLayout>
+                  <StackLayout>
+                    <Label Text="Opportunities" TextColor="White" FontSize="Small" HorizontalTextAlignment="Center"/>
+                  </StackLayout>
+
+                </StackLayout>
+              </Frame>
+
+              <StackLayout Grid.Row="0" Grid.Column="3" >
+                <BoxView WidthRequest="1" VerticalOptions="FillAndExpand" Color="Transparent"/>
+              </StackLayout>
+
+              <Frame Grid.Row="0" Grid.Column="4" Padding="5,5,5,0" BackgroundColor="#128197" CornerRadius="5">
+
+                <StackLayout>
+
+                  <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer  Tapped="saleClicked" NumberOfTapsRequired="1">
+                    </TapGestureRecognizer>
+                  </StackLayout.GestureRecognizers>
+
+                  <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center" Padding="5,5,0,0">
+                    <Image Source="dollarwhite.png" HeightRequest="24"  />
+                    <Label Text="" FontSize="Medium" TextColor="White" x:Name="sales_text" HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
+                  </StackLayout>
+                  <StackLayout>
+                    <Label Text="Sales" TextColor="White" FontSize="Small" HorizontalTextAlignment="Center" />
+                  </StackLayout>
+
+                </StackLayout>
+
+              </Frame>
+
+            </Grid>
+          </StackLayout>
+        </StackLayout>
+
+
+
+        <BoxView HeightRequest="5" Color="Transparent"/>
+
+        <BoxView HeightRequest="2" BackgroundColor="White" HorizontalOptions="FillAndExpand" Color="White"/>
+
+        <BoxView HeightRequest="5" Color="Transparent"/>
+
+
+        <Grid Padding="5,0,5,0">
+
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width=".40*"/>
+            <ColumnDefinition Width=".60*"/>
+          </Grid.ColumnDefinitions>
+
+          <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+          </Grid.RowDefinitions>
+
+
+
+          <StackLayout Grid.Column="0"  VerticalOptions="Center">
+            <Image Source="" x:Name="cus_image" WidthRequest="100" HeightRequest="100" />
+          </StackLayout>
+
+
+          <StackLayout Grid.Column="1" Padding="5,5,5,5" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            
+            <Label x:Name="name" Text="" FontSize="Medium" TextColor="#363E4B" HorizontalTextAlignment="Start" FontAttributes="Bold" />
+            <Label x:Name="name_label" IsVisible="false" Text="Name :" FontSize="Medium" TextColor="#363E4B" HorizontalTextAlignment="Start" FontAttributes="Bold" />
+            <Entry x:Name="name_entry" IsVisible="false" TextColor="#363E4B" HorizontalTextAlignment="Start" Margin="5,0,0,0" />
+            
+            <Label x:Name ="email" Text="" TextColor="#363E4B" FontAttributes="Bold" HorizontalTextAlignment="Start"/>
+            <Label x:Name ="email_label" IsVisible="false" FontAttributes="Bold" Text="Email :" TextColor="#363E4B"  HorizontalTextAlignment="Start" FontSize="Medium"/>
+            <Entry x:Name ="email_entry" IsVisible="false" TextColor="#363E4B" HorizontalTextAlignment="Start" Margin="5,0,0,0"/>
+            
+            <Label x:Name="mobile_No" TextColor="#363E4B" FontAttributes="Bold" HorizontalTextAlignment="Start" Text="" />
+            <Label x:Name="mobile_No_label" IsVisible="false" FontAttributes="Bold" TextColor="#363E4B"  HorizontalTextAlignment="Start" Text="Mobile No :" FontSize="Medium" />
+            <Entry x:Name="mobile_No_entry" IsVisible="false" TextColor="#363E4B" HorizontalTextAlignment="Start" Margin="5,0,0,0"/>
+          </StackLayout>
+
+        </Grid>
+
+        <BoxView HeightRequest="10" Color="Transparent"/>
+
+        <StackLayout Padding="10">
+          <Frame CornerRadius="5" >
+            <StackLayout BackgroundColor="White">
+
+              <Grid Padding="0">
+
+                <!--<Grid.ColumnDefinitions> 
+                    <ColumnDefinition Width=".25*"/>
+                    <ColumnDefinition Width=".75*"/>                                      
+                </Grid.ColumnDefinitions>-->
+
+                <Grid.RowDefinitions>
+                  <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Label Text="Address :" TextColor="#363E4B" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" FontSize="Medium" Margin="0,0,0,10"/>
+
+                <StackLayout Grid.Row="1" Grid.Column="0" Padding="20,0,0,0">
+                  
+                  <Label Text="1" x:Name="street" TextColor="#363E4B" FontAttributes="Bold" FontSize="Small"/>
+                  <Label x:Name="street_label" IsVisible="false" TextColor="#363E4B" FontAttributes="Bold" FontSize="Small" Text="Street :"/>
+                  <Entry x:Name="street_entry" IsVisible="false" TextColor="#363E4B" FontSize="Small" Margin="5,0,0,0"/>
+                  
+                  <Label Text="1" x:Name="city" TextColor="#363E4B" FontAttributes="Bold" FontSize="Small"/>
+                  <Label x:Name="city_label" IsVisible="false" TextColor="#363E4B" FontAttributes="Bold" FontSize="Small" Text="City :"/>
+                  <Entry x:Name="city_entry" IsVisible="false" TextColor="#363E4B" FontSize="Small" Margin="5,0,0,0"/>
+                  
+                  
+                  <Label Text="1" x:Name="zip" TextColor="#363E4B" FontAttributes="Bold" FontSize="Small"/>
+                  <Label x:Name="zip_label" IsVisible="false" TextColor="#363E4B" FontAttributes="Bold" FontSize="Small" Text="Zip :"/>
+                  <Entry x:Name="zip_entry" IsVisible="false" TextColor="#363E4B"  FontSize="Small" Margin="5,0,0,0"/>
+                  <!--<Label Text="1" x:Name="street4"/>-->
+                </StackLayout>
+
+              </Grid>
+
+              <BoxView HeightRequest="10" Color="Transparent"/>
+
+              <Grid>
+                <Label Text="Website :" FontAttributes="Bold" Grid.Row="0" TextColor="#363E4B" FontSize="Medium"/>
+                <Label x:Name="web_text" Margin="20,0,0,0" Grid.Row="1"  Text="" TextColor="#363E4B" FontAttributes="Bold" FontSize="Small"/>
+                <Entry x:Name="web_text_entry" IsVisible="false" Margin="20,0,0,0" Grid.Row="1" TextColor="#363E4B" FontSize="Small"/>
+              </Grid>
+
+              <!--<BoxView HeightRequest="10" Color="Transparent"/>
+
+              <Grid >
+                --><!--<Grid.ColumnDefinitions> 
+                    <ColumnDefinition Width=".25*"/>
+                    <ColumnDefinition Width=".75*"/>                                      
+                </Grid.ColumnDefinitions>--><!--
+                <Label Text="Tags :"  TextColor="#363E4B" FontAttributes="Bold" Grid.Row="0" FontSize="Medium"/>
+
+                <Grid Grid.Row="1"  x:Name="tags_grid" Padding="20,0,0,0"/>
+
+              </Grid>-->
+
+            </StackLayout >
+          </Frame  >
+
+        </StackLayout>
+
+
+        <BoxView HeightRequest="10" Color="Transparent"/>
+
+        <StackLayout Padding="10">
+          <Frame CornerRadius="5" Padding="2,2,2,2" >
+            <StackLayout BackgroundColor="White" Padding="5,5,5,5">
+
+              <StackLayout  >
+                <Label Text="Contacts :" FontAttributes="Bold" TextColor="#363E4B" FontSize="Medium" Margin="10,0,0,0"/>
+                <Image Margin="0,0,10,0" x:Name="AddContact_line" IsVisible="false" Source="plusyellow.png" WidthRequest="25" HeightRequest="25" HorizontalOptions="End"/>                  
+              </StackLayout>
+
+              <StackLayout VerticalOptions="FillAndExpand">
+
+                <ListView x:Name="CusListView" HasUnevenRows="true" ItemTapped="CusListView_ItemTapped">
+                  <ListView.ItemTemplate>
+                    <DataTemplate>
+                      <ViewCell Tapped="ViewCell_Tapped" >
+                        <Grid Padding="0,10,0,10">
+                          <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width=".3*" />
+                            <ColumnDefinition Width=".6*" />
+                          </Grid.ColumnDefinitions>
+                          <StackLayout Grid.Row="0" Grid.Column="0">
+                            <Image Source="{Binding CustomerImg}" HeightRequest="50"  />
+                          </StackLayout>
+                          <StackLayout Grid.Row="0" Grid.Column="1" >
+                            <Label Text="{Binding name}" TextColor="Gray" FontSize="Small" FontAttributes="Bold"/>
+                            <Label Text="{Binding mobile}"  />
+                          </StackLayout>
+                        </Grid>
+                      </ViewCell>
+                    </DataTemplate>
+                  </ListView.ItemTemplate>
+                </ListView>
+              </StackLayout>
+
+            </StackLayout >
+          </Frame  >
+        </StackLayout >
+
+        <BoxView HeightRequest="10" Color="Transparent"/>
+
+        <!--<StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" x:Name="savebtn_layout" IsVisible="false">
+          <Button Text="Save" TextColor="White" BackgroundColor="Black" Clicked="save_clicked"/>
+          <Button Text="Cancel" TextColor="Black" BackgroundColor="White" Clicked="cancel_clicked"/>
+        </StackLayout>-->
+
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" x:Name="updatebtn" IsVisible="false">
+          <Button Text="update" TextColor="White" BackgroundColor="Black" Clicked="update_clickedAsync"/>
+          <Button Text="Cancel" TextColor="Black" BackgroundColor="White" Clicked="updatecancel_clickedAsync"/>
+        </StackLayout>
+
+
+      </StackLayout>
+    </ScrollView>
+
+  </ContentPage.Content>
+</pages:PopupPage>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="SalesApp.Pages.TaxSelectionPage"
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+                 CloseWhenBackgroundIsClicked="true">
+   <Frame
+        x:Name="FrameContainer"
+        Margin="15,0,15,0"
+        HorizontalOptions="Center" 
+        VerticalOptions="Center"
+        BackgroundColor="#F0EEEF" CornerRadius="20">
+
+        <StackLayout x:Name="mainstack" IsClippedToBounds="True" Padding="5,0,0,0" Spacing="3"  HeightRequest="140" WidthRequest="300" HorizontalOptions="Center" VerticalOptions="Center">                                                   
+
+             <Label Text="Select Tax" TextColor="#102b1e" FontAttributes="Bold"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+
+                    <BoxView   VerticalOptions="Center"
+           HorizontalOptions="Center"
+           HeightRequest="1"
+           WidthRequest="50"  
+           Color="#5b5d68"></BoxView>
+                 
+
+        <StackLayout Orientation="Vertical" VerticalOptions="Center" >
+
+               
+   
+               <Frame CornerRadius="20" BackgroundColor="#f0eaea" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand" Padding="0" >
+                     <StackLayout Padding="10,0" > 
+                           <ListView x:Name="taxpickerListView" ItemTapped="taxpickerListView_ItemTapped" SeparatorColor="Blue"  >
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell Tapped="ViewCell_Tapped">                                        
+                                         <Grid>                                            
+                                       <!-- <Grid.ColumnDefinitions>
+                                      <ColumnDefinition Width=".7*"/>
+                                    
+                                        </Grid.ColumnDefinitions>-->  
+
+                                       <Label Text="{Binding Name}" FontSize="Small" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" VerticalTextAlignment="Center" TextColor="Black"/>                                                                                                     
+                                                                                   
+                                        </Grid>
+                                        </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>  
+                            </Frame>
+       
+                  
+                </StackLayout>
+                    
+                    </StackLayout>
+            </Frame>
+         
+        
+   <!-- </ScrollView>-->
+</pages:PopupPage>

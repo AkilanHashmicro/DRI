@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+             x:Class="SalesApp.wizard.CrmLeadDetailWizard">
+  
+    <ScrollView>
+        <StackLayout BackgroundColor="#F0EEEF">
+            
+            <Label Text="Details" x:Name="head_title" TextColor="White" FontSize="Medium" FontAttributes="Bold" BackgroundColor="#363E4B" HorizontalOptions="FillAndExpand" HeightRequest="50" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+          <!--  <BoxView HeightRequest="10" BackgroundColor="#F0EEEF"/>-->
+
+           <!-- <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal" x:Name="btnStack">
+                <Button x:Name="ButtonMarkWon" Clicked="ButtonMarkWon_ClickedAsync" Text="Mark Won"  BackgroundColor="#414141" TextColor="White"/>
+                <Button x:Name="ButtonMarkLost" Clicked="ButtonMarkLost_Clicked" Text="Mark Lost" BackgroundColor="#414141" TextColor="White"/>
+                <Button x:Name="ButtonNewQuotation" Clicked="ButtonNewQuotation_Clicked" Text="New Quotation" BackgroundColor="#414141" TextColor="White"/>
+            </StackLayout>-->
+
+             <Image x:Name="lead_editbtn" VerticalOptions="End" HorizontalOptions="End" Source="sqeditcolor.png" Margin="0,-20,10,0" WidthRequest="50" HeightRequest="50"  />
+
+
+
+             <BoxView HeightRequest="5" BackgroundColor="Transparent"/>
+
+                   <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" Color="Black"/>    
+                     
+                    <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+
+                    <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer  Tapped="attachStackClicked" NumberOfTapsRequired="1">
+                    </TapGestureRecognizer>
+                     </StackLayout.GestureRecognizers>
+                                             
+                        <Label Text="Attachment(s)" x:Name="attach_name" TextColor="Black" FontSize="Medium" FontAttributes="Bold" />  
+                        <Image  Source="drdown.png" WidthRequest="10" HeightRequest="10" Margin="0,3,0,0" />                        
+                    </StackLayout>
+     
+                <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" Color="Black"/>    
+
+              <BoxView HeightRequest="5" BackgroundColor="Transparent"/>
+
+
+            
+            <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                <Button x:Name="Convertbtn"  Text="Convert To Opportunities" Clicked="Convertbtn_ClickedAsync"  BackgroundColor="#128197" TextColor="White"/>
+            </StackLayout>
+            
+            <StackLayout Padding="15,5,15,0" x:Name="lead_noeditLayout" >
+                
+                <Label x:Name="CrmNameValue" TextColor="Black" FontSize="Large" FontAttributes="Bold" HorizontalOptions="StartAndExpand"/>
+            
+            <!--<Grid BackgroundColor="White" Padding="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width=".40*"/>
+                    <ColumnDefinition Width=".60*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                    <Label Text="Expected Revenue" TextColor="Black" Grid.Row="0" Grid.Column="0"/>
+                    <Label  x:Name="ExpectedRevenueValue" TextColor="Black" Grid.Row="0" Grid.Column="1"/>
+
+                    <Label Text="Probability" TextColor="Black" Grid.Row="1" Grid.Column="0"/>
+                    <Label  x:Name="ProbabilityValue" TextColor="Black" Grid.Row="1" Grid.Column="1"/>
+
+                    <Label Text="Customer" TextColor="Black" Grid.Row="2" Grid.Column="0"/>
+                    <Label  x:Name="CustomerNameValue" TextColor="Black" Grid.Row="2" Grid.Column="1"/>
+
+                    <Label Text="Email" TextColor="Black" Grid.Row="3" Grid.Column="0"/>
+                    <Label  x:Name="EmailValue" TextColor="Black" Grid.Row="3" Grid.Column="1"/>
+
+                    <Label Text="Phone" TextColor="Black" Grid.Row="4" Grid.Column="0"/>
+                    <Label  x:Name="PhoneValue" TextColor="Black" Grid.Row="4" Grid.Column="1"/>
+
+                    <Label Text="Team" TextColor="Black" Grid.Row="5" Grid.Column="0"/>
+                    <Label  x:Name="TeamValue" TextColor="Black" Grid.Row="5" Grid.Column="1"/>
+
+                    <Label Text="Next Activity" TextColor="Black" Grid.Row="6" Grid.Column="0"/>
+                    <Label  x:Name="NextActivityValue" TextColor="Black" Grid.Row="6" Grid.Column="1"/>
+
+                    <Label Text="Activity Date" TextColor="Black" Grid.Row="7" Grid.Column="0"/>
+                    <Label  x:Name="NextActivityDateValue" TextColor="Black" Grid.Row="7" Grid.Column="1"/>
+
+                    <Label Text="Activity Desc" TextColor="Black" Grid.Row="8" Grid.Column="0"/>
+                    <Label  x:Name="ActivityDescritionValue" TextColor="Black" Grid.Row="8" Grid.Column="1"/>
+
+                    <Label Text="Expected Closing" TextColor="Black" Grid.Row="9" Grid.Column="0"/>
+                    <Label  x:Name="expectedClosingValue" TextColor="Black" Grid.Row="9" Grid.Column="1"/>
+
+                    <Label Text="Rating" TextColor="Black" Grid.Row="10" Grid.Column="0"/>
+                    <StackLayout x:Name="RatingLayout3" Padding="1" Orientation="Horizontal" IsVisible="false"  Grid.Row="10" Grid.Column="1">
+                        <Image Source="star.png" WidthRequest="15" HeightRequest="15"/>
+                        <Image Source="star.png" WidthRequest="15" HeightRequest="15"/>
+                        <Image Source="star.png" WidthRequest="15" HeightRequest="15"/>
+                    </StackLayout>
+                    <StackLayout x:Name="RatingLayout2" Padding="1" Orientation="Horizontal" IsVisible="false" Grid.Row="10" Grid.Column="1">
+                        <Image Source="star.png" WidthRequest="15" HeightRequest="15"/>
+                        <Image Source="star.png" WidthRequest="15" HeightRequest="15"/>
+                    </StackLayout>
+                    <StackLayout x:Name="RatingLayout1" Padding="1" Orientation="Horizontal" IsVisible="false" Grid.Row="10" Grid.Column="1">
+                        <Image Source="star.png" WidthRequest="15" HeightRequest="15"/>
+                    </StackLayout>                
+                </Grid>-->
+              <Frame Padding="5,5,5,0" HasShadow="true" CornerRadius="5">
+                
+                <StackLayout Padding="10,0,10,10" BackgroundColor="White">
+
+                  <StackLayout x:Name="crm_name_layout" IsVisible="false"> 
+                  <Label Text="Name" TextColor="#363E4B" FontSize="Large" FontAttributes="Bold" />
+                            <Entry Text="" x:Name="crm_name_entry" TextColor="Black" />
+                  </StackLayout>
+                  
+ <!--                 <StackLayout>                    
+                    <Label Text="Expected Revenue" TextColor="#363E4B" FontSize="Medium" FontAttributes="Bold" />
+                    <Label Margin="15,0,0,0" x:Name="ExpectedRevenueValue" TextColor="#676262"  />
+                    <Entry Text="" x:Name="ex_rev_entry" TextColor="Black" Keyboard="Numeric" IsVisible="false"/>
+                           
+                  </StackLayout>
+                  <BoxView HeightRequest="0.5" BackgroundColor="LightGray"/>
+                  
+                  <StackLayout>
+                    <Label Text="Probability" TextColor="#363E4B" FontSize="Medium" FontAttributes="Bold" />
+                    <Label Margin="15,0,0,0"  x:Name="ProbabilityValue" TextColor="#676262"  />
+                    <Entry Text="" x:Name="prob_entry" TextColor="Black" Keyboard="Numeric"  IsVisible="false"/>
+                  </StackLayout>
+                  <BoxView HeightRequest="0.5" BackgroundColor="LightGray"/>
+
+                 <Grid Padding="10,0,10,0" x:Name="prob_alert"  IsVisible="false">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="8*" />
+                                </Grid.ColumnDefinitions>
+                 <Image x:Name="probAlert"  Source="emptyAlert.png" WidthRequest="18" HeightRequest="18" HorizontalOptions="Start" Grid.Row="0" Grid.Column="0"/>
+                 
+                 <Label x:Name="probAlertText" Text="Probability should be 0-100" FontSize="Micro" TextColor="#ce434a" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Start"/>
+                                             
+                </Grid>-->
+
+                         <StackLayout>
+                    <Label Text="Contact Name" TextColor="#363E4B" FontSize="Medium" FontAttributes="Bold" />
+                    <Label Margin="15,0,0,0"  x:Name="ContactNameValue" TextColor="#676262"  />
+                    <Entry Text="" x:Name="contactname_entry" TextColor="Black"   IsVisible="false"/>
+                  </StackLayout>
+                  <BoxView HeightRequest="0.5" BackgroundColor="LightGray"/>
+
+                <!--  <StackLayout>
+                    <Label Text="Customer" TextColor="#363E4B" FontSize="Medium" FontAttributes="Bold" />
+                    <Label Margin="15,0,0,0"  x:Name="CustomerNameValue" TextColor="#676262" />
+                   <Picker  x:Name="cus_picker"   IsVisible="false"/>
+                  </StackLayout>-->
+
+                    <BoxView HeightRequest="0.5" BackgroundColor="LightGray"/>
+
+                  <StackLayout>
+                    <Label Text="Sales Team" TextColor="#363E4B" FontSize="Medium" FontAttributes="Bold" />
+                    <Label Margin="15,0,0,0"  x:Name="TeamValue" TextColor="#676262"  />
+                    <Picker  x:Name="team_picker"  IsVisible="false"/>        
+                  </StackLayout>
+                  <BoxView HeightRequest="0.5" BackgroundColor="LightGray"/>
+
+                 <StackLayout>
+                    <Label Text="Sales Person" TextColor="#363E4B" FontSize="Medium" FontAttributes="Bold" />
+                    <Label Margin="15,0,0,0"  x:Name="SalesPersonValue" TextColor="#676262" />
+                    <Picker  x:Name="sales_person_picker"  IsVisible="false"/>
+                  </StackLayout>
+                  <BoxView HeightRequest="0.5" BackgroundColor="LightGray"/>
+                       
+        <!--           <StackLayout>
+                    <Label Text="Next Activity" TextColor="#363E4B" FontSize="Medium" FontAttributes="Bold" />
+                    <Label Margin="15,0,0,0"  x:Name="NextActValue" TextColor="#676262" />
+                   <Picker  x:Name="nextact_picker"   IsVisible="false"/>
+                  </StackLayout>
+                  <BoxView HeightRequest="0.5" BackgroundColor="LightGray"/>
+                        
+
+                  <StackLayout>
+                    <Label Text="Expected Closing" TextColor="#363E4B" FontSize="Medium" FontAttributes="Bold" />
+                    <Label Margin="15,0,0,0"  x:Name="expectedClosingValue" TextColor="#676262" />
+                     <DatePicker  x:Name="expe_closing_picker"  IsVisible="false"/>        
+                  </StackLayout>
+                  <BoxView HeightRequest="0.5" BackgroundColor="LightGray"/>-->
+
+                  <StackLayout>
+                    <Label Text="Email" TextColor="#363E4B" FontSize="Medium" FontAttributes="Bold" />
+                    <Label Margin="15,0,0,0"  x:Name="EmailValue" TextColor="#676262" />
+                     <Entry Text="" x:Name="email_entry" TextColor="Black" IsVisible="false"/>
+                  </StackLayout>
+                        
+                <!-- <BoxView HeightRequest="0.5" BackgroundColor="LightGray"/>-->
+
+                  <StackLayout>
+                    <Label Text="Phone" TextColor="#363E4B" FontSize="Medium" FontAttributes="Bold" />
+                    <Label Margin="15,0,0,0"  x:Name="PhoneValue" TextColor="#676262"  />
+                    <Entry Text="" x:Name="phone_entry" Keyboard="Telephone" TextColor="Black" IsVisible="false"/>
+                  </StackLayout>
+                  <BoxView HeightRequest="0.5" BackgroundColor="LightGray"/>
+
+
+
+                  <StackLayout>
+                    <Label Text="Rating" TextColor="#363E4B" FontSize="Medium" FontAttributes="Bold"/>
+                    <StackLayout x:Name="RatingLayout3" Padding="1" Orientation="Horizontal" IsVisible="false">
+                      <Image Source="star.png" WidthRequest="15" HeightRequest="15"/>
+                      <Image Source="star.png" WidthRequest="15" HeightRequest="15"/>
+                      <Image Source="star.png" WidthRequest="15" HeightRequest="15"/>
+                    </StackLayout>
+                    <StackLayout x:Name="RatingLayout2" Padding="1" Orientation="Horizontal" IsVisible="false">
+                      <Image Source="star.png" WidthRequest="15" HeightRequest="15"/>
+                      <Image Source="star.png" WidthRequest="15" HeightRequest="15"/>
+                    </StackLayout>
+                    <StackLayout x:Name="RatingLayout1" Padding="1" Orientation="Horizontal" IsVisible="false">
+                      <Image Source="star.png" WidthRequest="15" HeightRequest="15"/>
+                    </StackLayout>
+
+                    <StackLayout x:Name="emptyRatingLayout3" Padding="1" Orientation="Horizontal"   Grid.Row="0" Grid.Column="1" IsVisible="false">
+                    <Image Source="emptystar.png" WidthRequest="15" HeightRequest="15" x:Name="em1" Margin="5"/>
+                            <Image Source="star.png" WidthRequest="15" HeightRequest="15" x:Name="str1" IsVisible="false" Margin="5"/>
+                    <Image Source="emptystar.png" WidthRequest="15" HeightRequest="15" x:Name="em2" Margin="5"/>
+                            <Image Source="star.png" WidthRequest="15" HeightRequest="15" x:Name="str2" IsVisible="false" Margin="5"/>
+                    <Image Source="emptystar.png" WidthRequest="15" HeightRequest="15" x:Name="em3" Margin="5"/>
+                            <Image Source="star.png" WidthRequest="15" HeightRequest="15" x:Name="str3" IsVisible="false" Margin="5"/>
+                            
+                    </StackLayout> 
+
+                            
+                  </StackLayout>
+
+                  <!--<BoxView HeightRequest="10"/>-->
+                 
+                </StackLayout>  
+                
+              </Frame>
+
+               
+                <BoxView HeightRequest="10"/>
+
+
+
+                    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Orientation="Horizontal" x:Name="updateStackLayout" IsVisible="false" >
+                        <Button Text="Update" HorizontalOptions="StartAndExpand" TextColor="White" BackgroundColor="#128197" Clicked="updateClickedAsync"/>
+                        <Button Text="Cancel" HorizontalOptions="StartAndExpand" TextColor="Black" BackgroundColor="#F0EEEF" Clicked="cancelClickedAsync"/>
+                    </StackLayout>
+
+                <BoxView HeightRequest="10"/>
+                
+            </StackLayout>
+
+            
+
+
+            
+        </StackLayout>
+        
+    </ScrollView>
+</pages:PopupPage>

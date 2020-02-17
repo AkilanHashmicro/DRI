@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SalesApp.views.StockCountDetailPage"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+             xmlns:local="clr-namespace:SalesApp"
+             Title="Stock Count Detail" >
+  
+  <StackLayout BackgroundColor="#f0ebeb" >
+    <StackLayout VerticalOptions="FillAndExpand">
+
+      <StackLayout BackgroundColor="#363E4B" x:Name="back" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="5">
+        <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal">
+          <Image x:Name="backImg"  Source="barrow108.png" Margin="10,5,0,5" WidthRequest="24" HeightRequest="24" BackgroundColor="#363E4B" />
+          <Label Text="Stock Count Detail" x:Name="HideLbl" Margin="15,3,0,5" HorizontalOptions="Center" FontSize="Large"  TextColor="White" />
+        </StackLayout>
+      </StackLayout>
+
+        <ListView x:Name="stockcountDetail"  HasUnevenRows="True" >
+          <!--ItemTapped="ItemTapped_color"-->
+          <ListView.ItemTemplate>
+            <DataTemplate>
+              <ViewCell >
+                <ViewCell.View >
+                  <!--Tapped="ViewCell_Tapped"-->
+                  <StackLayout Padding="5,5,5,5">
+                    <Frame  Padding="2,2,2,2" HasShadow="True" CornerRadius="5">
+                      <StackLayout VerticalOptions="FillAndExpand" Orientation="Vertical" Padding="5,5,5,5" BackgroundColor="White">
+
+                        <Grid>
+                          <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                          </Grid.RowDefinitions>
+                          <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width=".80*" />
+                            <ColumnDefinition Width=".20*" />
+                            <!--<ColumnDefinition Width=".05*" />-->
+                          </Grid.ColumnDefinitions>
+                          <Label Text="{Binding location}"   FontSize="Medium"  FontAttributes="Bold" VerticalTextAlignment="Center" TextColor="Black" />
+                          <!--<Frame CornerRadius="5" Grid.Row="0" Grid.Column="1" BackgroundColor="#FFA602" Padding="1,1,1,1" >
+                            <Label Text="{Binding DATENOW}"   FontSize="Medium"  VerticalTextAlignment="Center"  HorizontalOptions="Center"  TextColor="White"/>
+                          </Frame>-->
+                        </Grid>
+                        
+                        <Grid>
+                          <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                          </Grid.RowDefinitions>
+                          <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width=".80*" />
+                            <ColumnDefinition Width=".20*" />                       
+                          </Grid.ColumnDefinitions>
+                          <Label Text="{Binding item_no}"  Grid.Row="0" Grid.Column="0" FontSize="Small"  VerticalTextAlignment="Center" />
+                        </Grid>
+                        
+                        <Grid >
+                          <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                          </Grid.RowDefinitions>
+                          <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width=".80*" />
+                            <ColumnDefinition Width=".20*" />
+                            <!--<ColumnDefinition Width=".05*" />-->
+                            
+                          </Grid.ColumnDefinitions>
+                          <Label Text="{Binding product}" Grid.Row="0" Grid.Column="0"  FontSize="Medium" VerticalTextAlignment="Center"  />
+                          <Frame CornerRadius="5" Grid.Row="0" Grid.Column="1" BackgroundColor="#128197" Padding="1,1,1,1" >
+                            <StackLayout Orientation="Horizontal" Padding="0" HorizontalOptions="CenterAndExpand">
+                              <Label Text="Qty:" FontSize="Medium"  VerticalTextAlignment="Center"  FontAttributes="Bold" TextColor="White" />
+                              <Label Text="{Binding qty}" FontSize="Medium"  VerticalTextAlignment="Center"  TextColor="White"/>
+                            </StackLayout>
+                          </Frame>
+                        </Grid>
+                        
+                      </StackLayout>
+                    </Frame>
+                  </StackLayout>
+                </ViewCell.View>
+              </ViewCell>
+            </DataTemplate>
+          </ListView.ItemTemplate>
+        </ListView>
+      
+      
+    </StackLayout>
+  </StackLayout>
+</pages:PopupPage>

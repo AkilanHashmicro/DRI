@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="SalesApp.Pages.SalesQuotationEditPage">
+    <ContentPage.Content>
+
+        <StackLayout>
+            <Grid Padding="10" x:Name="orderLineGrid" IsVisible="false">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width=".3*"/>
+                    <ColumnDefinition Width=".7*"/>
+                </Grid.ColumnDefinitions>
+
+      
+                        
+                <Label Text="Product"  FontSize="Small" Grid.Row="0" Grid.Column="0" VerticalTextAlignment="Center"/>
+                <!--<Picker x:Name="pd"  Grid.Row="0" Grid.Column="1"  />-->
+
+                 <StackLayout Grid.Row="0" Grid.Column="1" >
+                     <Grid >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width=".9*" />
+                                    <ColumnDefinition Width=".1*" />
+                                </Grid.ColumnDefinitions> 
+                                
+                              <Entry Grid.Column="0" Text=""  Margin="0,0,-30,0"  x:Name="searchprod"  Focused="prodpicker_Focused" />  
+
+                               <!-- <SearchBar Grid.Column="0" Text="" x:Name="searchprod" TextChanged="SearchBar_TextChanged" Focused="prodpicker_Focused"/>-->
+
+                                <StackLayout Grid.Column="1" >
+                                <Image x:Name="pickerdropimg" Source="drdown.png" WidthRequest="10" HeightRequest="10" Margin="0,15,0,0" />                        
+                                </StackLayout>
+                          </Grid>
+                </StackLayout>
+
+                      
+                <Label Text="Description"  FontSize="Small" Grid.Row="1" Grid.Column="0" VerticalTextAlignment="Center"/>
+                <Entry x:Name="orderline_des"  Grid.Row="1" Grid.Column="1"  />
+                               
+                <Label Text="Ordered Qty"  FontSize="Small" Grid.Row="2" Grid.Column="0" VerticalTextAlignment="Center"/>
+                <Entry x:Name="oqty"  Grid.Row="2" Grid.Column="1" Keyboard="Numeric"  />
+
+                <Label Text="Unit Price"  FontSize="Small" Grid.Row="3" Grid.Column="0" VerticalTextAlignment="Center"/>
+                <Entry x:Name="up"   Grid.Row="3" Grid.Column="1" Keyboard="Numeric" />
+
+                </Grid>
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Button Text="Save" TextColor="White" BackgroundColor="#414141" />
+                    <Button Text="Cancel" TextColor="White" BackgroundColor="#414141" />
+                </StackLayout>
+            
+
+        </StackLayout>
+
+        
+    </ContentPage.Content>
+</ContentPage>

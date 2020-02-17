@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms" 
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+                 x:Class="SalesApp.wizard.AddSalesQuotationWizard">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White">
+        <StackLayout BackgroundColor="Black" x:Name="back" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="5">
+                <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal">
+                    <Image x:Name="backImg"  Source="barrow108.png" Margin="10,5,0,5" WidthRequest="24" HeightRequest="24" BackgroundColor="Black" />
+                    <Label Text="Add Opportunity Meetings" x:Name="HideLbl" Margin="15,5,0,5" HorizontalOptions="Center" FontSize="Medium" TextColor="White" />
+                </StackLayout>
+            </StackLayout>
+            
+            <Grid Padding="10" RowSpacing="20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width=".3*"/>
+                    <ColumnDefinition Width=".7*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Product"  FontSize="Small" Grid.Row="0" Grid.Column="0" VerticalTextAlignment="Center"/>
+                <Picker x:Name="pd"  TextColor="#747577" Grid.Row="0" Grid.Column="1" />
+
+                <Label Text="Description"  FontSize="Small" Grid.Row="1" Grid.Column="0" VerticalTextAlignment="Center"/>
+                <Entry x:Name="des"  Grid.Row="1" Grid.Column="1" />
+
+                <Label Text="Ordered Qty"  FontSize="Small" Grid.Row="2" Grid.Column="0" VerticalTextAlignment="Center"/>
+                <Entry x:Name="oqty"  Grid.Row="2" Grid.Column="1" Keyboard="Numeric" />
+                                
+            </Grid>
+
+            <BoxView HeightRequest="20" BackgroundColor="Transparent"/>
+            <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                <Button Text="Back" BackgroundColor="Black" TextColor="White" WidthRequest="120" Clicked="Button_Back_Clicked"/>
+                <Button Text="Add" BackgroundColor="Black" TextColor="White" WidthRequest="120" Clicked="Button_Add_Clicked"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</pages:PopupPage> 

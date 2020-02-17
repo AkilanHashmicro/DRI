@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+             x:Class="SalesApp.wizard.CrmSearchWizard">
+    <StackLayout Margin="0" Padding="10">
+        <Frame Margin="20,50" BackgroundColor="White" CornerRadius="20">
+            <StackLayout>
+                <Label Text="CRM Search" FontSize="Large"/>
+                <BoxView HeightRequest="20" BackgroundColor="White"/>
+                <Picker x:Name="SearchPicker" ></Picker>
+                <Entry Placeholder="Search Here" HorizontalOptions="FillAndExpand"/>
+                <BoxView HeightRequest="20" BackgroundColor="White"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Button Text="Find" TextColor="White" BackgroundColor="#414141" WidthRequest="100"/>
+                    <Button Text="Cancel" TextColor="White" BackgroundColor="#414141" WidthRequest="100"/>
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+</pages:PopupPage>

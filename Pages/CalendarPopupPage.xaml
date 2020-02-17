@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+           xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             x:Class="SalesApp.Pages.CalendarPopupPage"
+                 xmlns:local="clr-namespace:SalesApp;assembly=SalesApp"
+                 xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms" >
+   
+    <ScrollView Padding="0,50,0,0">
+
+        <Frame
+        x:Name="FrameContainer"            
+        HorizontalOptions="Center"
+            VerticalOptions="Center"
+            Padding="0,5,0,0" CornerRadius="20" BackgroundColor="#F0EEEF">
+                              
+                <StackLayout  x:Name="mainstack" HeightRequest="960" WidthRequest="340" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand">                            
+
+                <StackLayout BackgroundColor="#F0EEEF">
+                                       
+                    <StackLayout HorizontalOptions="End" Padding="0,5,10,0">
+                        <Image Source="cancel.png" x:Name="overall_close" WidthRequest="25" HeightRequest="25"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center"  >
+                        <Label Text="Schedule Meeting"   FontSize="Large" />
+                    </StackLayout>
+
+                    <BoxView   VerticalOptions="Center"
+           HorizontalOptions="Center"
+           HeightRequest="1"
+           WidthRequest="50"  
+           Color="#5b5d68"></BoxView>
+
+                    <BoxView Color="Transparent" HeightRequest="5"/>
+
+         <BoxView  HeightRequest="2" BackgroundColor="Black" HorizontalOptions="FillAndExpand"  />                                        
+
+                    <StackLayout Padding="10,0,0,0">
+                      <Label Text="Meeting Subject"   FontSize="Medium"  />
+                      <Entry Margin="10,0,10,0" x:Name="meeting_subject"  Text="" PlaceholderColor="DarkGray" FontSize="Medium" />
+                    </StackLayout>
+                    
+                <Grid Padding="10,0,0,0" x:Name="meeting_alert" IsVisible="false">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width=".05*" />
+                                    <ColumnDefinition Width=".95*" />
+                                </Grid.ColumnDefinitions>
+                <Image x:Name="usernameAlert"  Source="emptyAlert.png" WidthRequest="18" HeightRequest="18" HorizontalOptions="Start" Grid.Row="0" Grid.Column="0"/>
+
+                 <Label x:Name="usernameAlertText" Text="Subject should not be empty." HorizontalOptions="Start" FontSize="Micro" TextColor="#ce434a" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center"/>
+                                             
+                </Grid>
+                    
+                      <BoxView x:Name="meeting_box" Color="Transparent" HeightRequest="5" IsVisible="false"/>                                            
+                                                          
+              <StackLayout   BackgroundColor="#F0EEEF" Padding="3" >
+                  <StackLayout  BackgroundColor="#F0EEEF" Padding="10">
+                    
+                        <Grid >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width=".65*" />
+                                    <ColumnDefinition Width=".35*" />
+                                </Grid.ColumnDefinitions>
+                                
+                            <Label Text="Start Date" Grid.Column="0"  FontSize="Medium"/>
+                            <Label Text="Time" Grid.Column="1"  FontSize="Medium"/>                               
+                        </Grid>
+
+                   
+
+                    <Grid>
+                            <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width=".40*" />
+                            <ColumnDefinition Width=".10*" /> 
+                            <ColumnDefinition Width=".20*" />  
+                             <ColumnDefinition Width=".10*" /> 
+
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout Grid.Row="0" Grid.Column="0">
+                            <DatePicker x:Name="st_date"  Format="dd/MM/yyyy"  Margin="10,0,0,0" HorizontalOptions="StartAndExpand" />
+                        </StackLayout>
+
+                                <StackLayout Grid.Row="0" Grid.Column="1">
+                            <Image Source="datenew.png" Margin="0,10,0,0" WidthRequest="20" HeightRequest="20" />
+                        </StackLayout>
+
+                        <StackLayout Grid.Row="0" Grid.Column="2">
+                            <TimePicker Margin="5,0,0,0" x:Name="st_poptime"  Format="HH:mm"  HorizontalOptions="CenterAndExpand" />
+                        </StackLayout>
+
+                         <StackLayout Grid.Row="0" Grid.Column="3">
+                            <Image Source="timenew.png" Margin="0,10,0,0" WidthRequest="20" HeightRequest="20" />
+                        </StackLayout>
+      
+                    </Grid>
+                               
+                       <BoxView Color="Transparent" HeightRequest="10"/>
+
+                     <StackLayout Orientation="Vertical" x:Name="durStack" >
+                        <Label Text="Duration"   FontSize="Medium" />
+                        <Entry   Text="" x:Name="dur" Placeholder="Sample" Keyboard="Numeric" PlaceholderColor="DarkGray" FontSize="Medium" />
+                        <BoxView Color="Transparent" HeightRequest="10"/>
+                    </StackLayout>
+                                                        
+
+                          <Grid x:Name="stoplabelStack" IsVisible="false">
+
+                                   <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width=".65*" />
+                                    <ColumnDefinition Width=".35*" />
+                                </Grid.ColumnDefinitions>
+                                
+                            <Label Text="Stop Date" Grid.Column="0"  FontSize="Medium"/>
+                            <Label Text="Time" Grid.Column="1"  FontSize="Medium"/> 
+                                
+                        </Grid>
+
+                    <Grid x:Name="stoplabelStack1" IsVisible="false">
+                       <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width=".40*" />
+                            <ColumnDefinition Width=".10*" /> 
+                            <ColumnDefinition Width=".20*" />  
+                             <ColumnDefinition Width=".10*" /> 
+
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout Grid.Row="0" Grid.Column="0">
+                            <DatePicker x:Name="stop_date" Format="dd/MM/yyyy" Margin="10,0,0,0" HorizontalOptions="StartAndExpand" />
+                        </StackLayout>
+                        <StackLayout Grid.Row="0" Grid.Column="1">
+                            <Image Source="datenew.png" Margin="0,10,0,0" WidthRequest="20" HeightRequest="20" />
+                        </StackLayout>
+                        <StackLayout Grid.Row="0" Grid.Column="2">
+                            <TimePicker Margin="5,0,0,0" x:Name="stop_poptime" Format="HH:mm" HorizontalOptions="CenterAndExpand" />
+                        </StackLayout>
+                       <StackLayout Grid.Row="0" Grid.Column="3">
+                            <Image Source="timenew.png" Margin="0,10,0,0" WidthRequest="20" HeightRequest="20" />
+                        </StackLayout>
+                    </Grid>
+                            
+                    <BoxView HeightRequest="2" Color="Transparent"/>
+
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                        <controls:CheckBox x:Name="check1" CheckedChanged="check1_CheckedChanged" />
+                        <Label Margin="0, 5,0,0"  Text="All day" />
+                    </StackLayout>
+                            
+                   </StackLayout>
+                        </StackLayout>
+
+                
+                       <Grid Padding="0,0,0,0" x:Name="date_alert" IsVisible="false">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="8*" />
+                                </Grid.ColumnDefinitions>
+                              <Image   Source="emptyAlert.png" WidthRequest="18" HeightRequest="18" HorizontalOptions="Start" Grid.Row="0" Grid.Column="0"/>
+
+                               <Label  Text="Stop date should not be previous than start" FontSize="Micro" TextColor="#ce434a" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center"/>
+                                             
+                        </Grid>
+                    
+                      <BoxView x:Name="date_box" Color="Transparent" HeightRequest="5" IsVisible="false"/>
+
+                      <StackLayout>
+                          <BoxView  HeightRequest="2" BackgroundColor="Black" HorizontalOptions="FillAndExpand"   />
+                        </StackLayout>
+
+                    <BoxView Color="Transparent" HeightRequest="10"/>
+
+                    <StackLayout Padding="10,0,0,0">
+                        <Label Text="Event Details" FontSize="Medium" FontAttributes="Bold"/>
+                    </StackLayout>
+
+                     <BoxView Color="Transparent" HeightRequest="10"/>
+
+             <StackLayout Padding="10,0,0,0">      
+   
+               <Label Text="Location"  FontSize="Medium"  />
+
+              </StackLayout>
+       
+                                                         
+                       <Grid Padding="10,0,0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width=".8*" />
+                                    <ColumnDefinition Width=".1*" />
+                                </Grid.ColumnDefinitions> 
+                                <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        
+                                <Entry Placeholder="Singapore" Text="" FontSize="Medium" Margin="0,0,-30,0" Grid.Row="0" Grid.Column="0" x:Name="loc"    />  
+                            <StackLayout Grid.Column="1" Grid.Row="0" >
+                                <Image  Source="mapnew.png" WidthRequest="20" HeightRequest="20" Margin="0,10,0,0"  />                        
+                                </StackLayout>
+                          </Grid>
+                                                                 
+                                                           
+                     <BoxView Color="Transparent" HeightRequest="5"/>
+
+                     <StackLayout Orientation="Vertical" Padding="10,0,0,0" >
+                        <Label Text="Description"   FontSize="Medium" />
+                        <Entry   Margin="0,0,10,0" Text="" x:Name="des" Placeholder="Sample" PlaceholderColor="DarkGray" FontSize="Medium" />
+                    </StackLayout>
+
+                     <BoxView Color="Transparent" HeightRequest="5"/>
+
+          <BoxView  HeightRequest="2" BackgroundColor="Black" HorizontalOptions="FillAndExpand"  />                                        
+
+                    <StackLayout Orientation="Vertical" Padding="10,0,10,0" >
+
+                       <Label Text="Attendees"   FontSize="Medium" /> 
+                       <Frame CornerRadius="20" BackgroundColor="#363E4B" VerticalOptions="FillAndExpand" Padding="0" >
+                     <StackLayout Padding="10,0" BackgroundColor="#363E4B"> 
+                           <ListView x:Name="attnListView" SeparatorColor="Blue" HeightRequest="0"  >
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell Tapped="ViewCell_Tapped">                                        
+                                         <Grid>                                            
+                                        <Grid.ColumnDefinitions>
+                                      <ColumnDefinition Width=".8*"/>
+                                      <ColumnDefinition Width=".2*"/>
+                                        </Grid.ColumnDefinitions>  
+
+                                       <Label Grid.Column="0" Text="{Binding name}" FontSize="Small"  VerticalTextAlignment="Center" TextColor="#F0EEEF"/>                                                                                                     
+
+                                             <Image Grid.Column="1" x:Name="cancelImg" Source="closewhite.png" WidthRequest="10" HeightRequest="10" Margin="10" >
+                                                 <Image.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="ListviewcloseClicked" CommandParameter="{Binding .}" />
+                                                        </Image.GestureRecognizers>
+                                                 </Image>
+                                        </Grid>
+                                        </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>  
+                            </Frame>
+
+                  <StackLayout  Padding="10,0" x:Name="Addbtn" IsVisible="false" >
+                    <Image x:Name="AddAirCon1"  Source="plusyellow.png" WidthRequest="25" HeightRequest="25" HorizontalOptions="Start"/>
+                  </StackLayout>
+                                          
+                            <Grid Padding="0,0,0,0" x:Name="pickergrid">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="8*" />
+                                    <ColumnDefinition Width="1*" />
+                                </Grid.ColumnDefinitions> 
+                               <StackLayout Grid.Column="0">
+                                <Picker   Margin="0,0,-30,0" Title="Select"  x:Name="attspicker1" SelectedIndexChanged="myPickerSelectedIndexChanged" />  
+                                </StackLayout>
+                                <StackLayout Grid.Column="1" Padding="0,20,0,0">
+                                <Image  Source="drdown.png" WidthRequest="10" HeightRequest="10" Margin="0,0,0,0" x:Name="attsdropimg1"/>                        
+                                </StackLayout>
+                             </Grid>
+
+                      <BoxView Color="Transparent" HeightRequest="5"/>
+
+                   <Label Text="Tags"  FontSize="Medium"  /> 
+
+                         <Frame CornerRadius="20" BackgroundColor="#363E4B" VerticalOptions="FillAndExpand" Padding="0" >
+                     <StackLayout Padding="10,0,0,0" > 
+                           <ListView x:Name="tagsListView"  SeparatorColor="Blue" HeightRequest="0" >
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell Tapped="ViewCell_Tapped">                                        
+                                         <Grid>                                            
+                                        <Grid.ColumnDefinitions>
+                                      <ColumnDefinition Width=".8*"/>
+                                      <ColumnDefinition Width=".2*"/>
+                                        </Grid.ColumnDefinitions>  
+
+                                       <Label Grid.Column="0" Text="{Binding name}" FontSize="Small"  VerticalTextAlignment="Center" TextColor="#F0EEEF"/>                                                                                                     
+
+                                             <Image Grid.Column="1" x:Name="cancelImg" Source="closewhite.png" WidthRequest="10" HeightRequest="10" Margin="10" >
+                                                 <Image.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="tagsListviewcloseClicked" CommandParameter="{Binding .}" />
+                                                        </Image.GestureRecognizers>
+                                                 </Image>
+                                        </Grid>
+                                        </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>  
+                            </Frame>
+                        
+                 <StackLayout  Padding="10,0" x:Name="Addbtn1" IsVisible="false" >
+                    <Image x:Name="AddAirCon2"  Source="plusyellow.png" WidthRequest="25" HeightRequest="25" HorizontalOptions="Start"/>
+                  </StackLayout>                                          
+                            <Grid Padding="0,0,0,0" x:Name="tagsgrid">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="8*" />
+                                    <ColumnDefinition Width="1*" />
+                                </Grid.ColumnDefinitions> 
+                            <StackLayout Grid.Column="0">
+                                <Picker   Margin="0,0,-30,0" Title="Select" x:Name="tagspicker1" SelectedIndexChanged="tagsPickerSelectedIndexChanged" />  
+                                </StackLayout>
+                                <StackLayout Grid.Column="1" Padding="0,20,0,0">
+                                <Image  Source="drdown.png" WidthRequest="10" HeightRequest="10" Margin="0,0,0,0" x:Name="attsdropimg2"/>                        
+                                </StackLayout>
+                           </Grid>
+               <BoxView Color="Transparent" HeightRequest="2"/>                                                                            
+             </StackLayout>
+
+                                      
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Padding="5, 5, 5, 0" x:Name="create_stack">
+                        
+                        <Button Text="Save" TextColor="White"  BackgroundColor="#128197"  FontSize="Small" HorizontalOptions="CenterAndExpand" Clicked="Handle_Clicked" />
+                        <Button Text="Cancel" TextColor="Black" BackgroundColor="White" FontSize="Small" HorizontalOptions="CenterAndExpand" Clicked="cancel_Clicked"/>
+                    </StackLayout>
+                                        
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Padding="5, 5, 5, 0" x:Name="update_stack">
+                        
+                        <Button Text="Save" TextColor="White"  BackgroundColor="#128197"  FontSize="Small" HorizontalOptions="CenterAndExpand" Clicked="Handle_Update_Clicked" />
+                        <Button Text="Cancel" TextColor="Black" BackgroundColor="White" FontSize="Small" HorizontalOptions="CenterAndExpand" Clicked="update_cancel_Clicked"/>
+                    </StackLayout>
+                  
+                </StackLayout>
+
+                </StackLayout>
+           
+       </Frame>
+    </ScrollView>
+</pages:PopupPage>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             x:Class="SalesApp.Pages.AttachmentPopupPage" CloseWhenBackgroundIsClicked="true">
+    <AbsoluteLayout HorizontalOptions="Center" VerticalOptions="StartAndExpand">
+            <Frame
+        CornerRadius="5"  Margin="3,150,0,0" HorizontalOptions="Start">
+
+                <StackLayout IsClippedToBounds="True" Padding="5,0,0,0"  x:Name="mainlayout"  WidthRequest="150" HorizontalOptions="StartAndExpand" VerticalOptions="FillAndExpand">
+
+
+                <!--<Image  x:Name="cancelImg" Source="cancel.png" WidthRequest="20" HeightRequest="15" HorizontalOptions="End" Margin="0,-10,-5,0" />-->
+                
+                <StackLayout x:Name="listviewlayout">
+                           <ListView x:Name="attachListView"  > <!--ItemTapped="attachListviewTaped" -->
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell Tapped="ViewCell_Tapped">                                        
+                                       <!--  <Grid> -->                                           
+                                        <!--<Grid.ColumnDefinitions>
+                                      <ColumnDefinition Width=".7*"/>
+                                      <ColumnDefinition Width=".3*"/>
+                                        </Grid.ColumnDefinitions>  -->
+
+                                       <Label Grid.Column="0" Text="{Binding datas_fname}" TextColor="#363E4B" FontSize="Micro" FontAttributes="Bold" VerticalTextAlignment="Center" />                                                                                                     
+
+                                             <!--<Image Grid.Column="1" x:Name="cancelImg" Source="cancel.png" WidthRequest="10" HeightRequest="10" Margin="10" >
+                                                 <Image.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="filedeleteClickedAsync" CommandParameter="{Binding .}" />
+                                                  </Image.GestureRecognizers>
+                                             </Image>-->
+                                        <!--</Grid>-->
+                                        </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+
+                
+               <Label Text="Add" Margin="-5,0,0,0" x:Name="add_attach" TextColor="Black"  HorizontalOptions="CenterAndExpand" FontSize="Medium"/>
+                  
+                </StackLayout>
+
+             <!-- <Label Text="Add" FontAttributes="Bold" FontSize="Medium"/>-->
+            
+            </Frame>
+            <ContentView
+         
+          AbsoluteLayout.LayoutFlags="PositionProportional"
+                AbsoluteLayout.LayoutBounds=".5,0,100,25">>
+                <!--<ContentView.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnCloseButtonTapped"/>
+                 AbsoluteLayout.LayoutFlags ="All"
+                </ContentView.GestureRecognizers>-->
+
+            </ContentView>
+        </AbsoluteLayout>
+    <!--</ScrollView>-->
+</pages:PopupPage>

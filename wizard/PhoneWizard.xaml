@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SalesApp.wizard.PhoneWizard"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup">
+
+    <Frame Margin="15,150"  CornerRadius="20" BackgroundColor="White" HorizontalOptions="Center" VerticalOptions="Center">
+
+        <StackLayout Orientation="Vertical">
+
+            <Label Text="Alert !" TextColor="Black"  FontSize="Large"  FontAttributes="Bold" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"/>
+            <BoxView HeightRequest="10" BackgroundColor="Transparent"/>
+            <Label Text="Complete Phone Number data!" HorizontalOptions="FillAndExpand"  TextColor="Gray" 
+                       FontSize="Medium" HorizontalTextAlignment="Center" />
+            <BoxView HeightRequest="10" BackgroundColor="Transparent"/>
+            <Button Text="OK" BackgroundColor="#363E4B" TextColor="White" WidthRequest="60" Clicked="Button_Clicked"/>
+
+        </StackLayout>
+
+    </Frame>
+
+</pages:PopupPage>

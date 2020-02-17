@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="SalesApp.views.ProfilePage"  Title=" Profile">
+    <ContentPage.Content>
+
+
+
+    <StackLayout BackgroundColor="#F0EEEF" Padding="10">             
+                                
+        <StackLayout Padding="2,2,2,2" BackgroundColor="DarkGray">
+                    <StackLayout BackgroundColor="White" Padding="5,10,10,5">
+
+                       <StackLayout  HorizontalOptions="End">
+                            <Image x:Name="edit_img" Source="editimg.png" WidthRequest="20" HeightRequest="20" />
+                        </StackLayout>
+                                           
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                            <ColumnDefinition Width="7*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                   <StackLayout>
+                            
+                    <StackLayout Grid.Row="0" Grid.Column="0" Padding="2,2,2,2" BackgroundColor="Gray" x:Name="file_img">
+                                    
+                    <StackLayout.GestureRecognizers  >
+                    <TapGestureRecognizer   Tapped="imgStackClicked" NumberOfTapsRequired="1">
+                    </TapGestureRecognizer>
+                     </StackLayout.GestureRecognizers>
+                                    
+                    <StackLayout BackgroundColor="White" Padding="2" x:Name="filetap">
+                            <Image x:Name="user_img" Source="userprofile1.png" WidthRequest="20" HeightRequest="120" />
+                        </StackLayout>
+                    </StackLayout>
+                            
+                               <!-- <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal" Padding="2,2,2,2" BackgroundColor="Gray">
+                                    
+                                    <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal" Padding="1,1,1,1" BackgroundColor="Gray">
+                                        <StackLayout BackgroundColor="White" Padding="10,10,10,5">
+                                            <Image Source="edit.png" x:Name="imgEdit" HorizontalOptions="StartAndExpand"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                    <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal" Padding="1,1,1,1" BackgroundColor="Gray">
+                                        <StackLayout BackgroundColor="White" Padding="10,10,10,5">
+                                            <Image Source="bin.png" x:Name="imgDelete" HorizontalOptions="StartAndExpand"/>
+                                        </StackLayout>
+                                    </StackLayout>                                    
+                                </StackLayout >-->
+                            
+                             </StackLayout>
+
+
+                            <StackLayout Grid.Row="0" Grid.Column="1" Margin="10,0,0,0" BackgroundColor="White">
+
+                                <StackLayout Orientation="Vertical"  >
+
+                                    <Label Text="Name"  TextColor="DarkGray" FontAttributes="Bold" FontSize="Medium" />
+                                    <Label x:Name="name_value" Text=""  TextColor="#363E4B"  FontSize="Medium" />
+                                    <Entry Text="" x:Name="name_entry" Margin="10,0,0,0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Placeholder="Sample" PlaceholderColor="DarkGray" FontSize="Medium" IsVisible="false"/>
+                                </StackLayout>
+
+                              <StackLayout Orientation="Vertical"  >
+
+                                    <Label Text="Email"  TextColor="DarkGray"  FontAttributes="Bold" FontSize="Medium" />
+                                    <Label x:Name="email_value" Text=""  TextColor="#363E4B"  FontSize="Medium" />
+                                    <Entry Text="" x:Name="email_entry" Margin="10,0,0,0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Placeholder="Email" PlaceholderColor="DarkGray" FontSize="Medium" IsVisible="false"/>
+                                </StackLayout>
+
+                            </StackLayout>
+                    
+                </Grid>  
+                     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Orientation="Horizontal" x:Name="updateStackLayout" IsVisible="false" >
+                        <Button Text="Update" HorizontalOptions="StartAndExpand" TextColor="White" BackgroundColor="Black" Clicked="updateClickedAsync"/>
+                        <Button Text="Cancel" HorizontalOptions="StartAndExpand" TextColor="White" BackgroundColor="Black" Clicked="cancelClickedAsync"/>
+                       </StackLayout>
+            </StackLayout>
+        </StackLayout>
+                 
+               <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                <Button x:Name="change_password"  Text="Change Password" Clicked="changepasswordbtn_Clicked"  BackgroundColor="#128197" TextColor="White"/>
+            </StackLayout>
+
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

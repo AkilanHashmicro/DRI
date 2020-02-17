@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+              xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+             x:Class="SalesApp.views.CalendarDetailPage" Title="Schedule Details"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+           xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions">
+    
+            <ContentPage.ToolbarItems>
+            <ToolbarItem Icon="edittool.png" Activated="Toolbar_edit_Activated" Priority="4" x:Name="toolbar_name"></ToolbarItem>
+            <!--<ToolbarItem Icon="search.png"  Activated="Toolbar_Search_Activated"></ToolbarItem>-->
+        </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout BackgroundColor="#F0EEEF">
+
+                <Grid BackgroundColor="#363E4B" Padding="5">
+                 <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".15*"/>
+                        <ColumnDefinition Width=".75*"/>
+                            <ColumnDefinition Width=".10*"/>
+                    </Grid.ColumnDefinitions>
+
+                   
+                    <StackLayout Grid.Column="0">
+                        <Image x:Name="backImg"  Source="barrow108.png" Margin="5,5,0,5" WidthRequest="24" HeightRequest="24"  />
+                    </StackLayout>
+
+                    <StackLayout Grid.Column="1">
+                        <Label Text="Schedule Details" x:Name="HideLbl" Margin="0,5,0,0" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold" TextColor="White" />
+                    </StackLayout>
+
+                    <StackLayout Grid.Column="2">
+                       <!--  <Image x:Name="toolImg"  Source="edittool.png"  WidthRequest="24" HeightRequest="24"  />-->
+                    </StackLayout>
+
+                  
+                    </Grid>
+
+
+                    <StackLayout HorizontalOptions="End" Padding="0,-15,15,0">
+                         <Image x:Name="toolImg"  Source="sqeditcolor.png"  WidthRequest="40" HeightRequest="40"  />
+                    </StackLayout>
+                
+                 <!--  <StackLayout BackgroundColor="Black" x:Name="back" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="5">
+                <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal">
+                    <Image x:Name="backImg"  Source="barrow108.png" Margin="10,5,0,5" WidthRequest="24" HeightRequest="24" BackgroundColor="Black" />
+                    <Label Text="Add Opportunity Meetings" x:Name="HideLbl" Margin="15,5,0,5" HorizontalOptions="Center" FontSize="Medium" TextColor="White" />
+                        <Image x:Name="toolImg"  Source="edittool.png" Margin="10,5,0,5" WidthRequest="24" HeightRequest="24" HorizontalOptions="EndAndExpand" />
+                </StackLayout>
+            </StackLayout>-->
+
+                <StackLayout Padding="0,10,0,10">
+                   
+                   <!-- <Label Text="Meeting Subject" TextColor="Black" FontSize="Medium" />-->
+                    <Label x:Name="metsub" Text="" FontSize="Medium" TextColor="Black" FontAttributes="Bold"  HorizontalOptions="CenterAndExpand"/>
+                    <BoxView HeightRequest="10" BackgroundColor="Transparent"/>
+                    
+                    <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" Color="Black"/>                    
+                    <BoxView HeightRequest="5" BackgroundColor="Transparent"/>   
+
+                       
+
+                            <StackLayout Padding="10,10,10,10" >
+                                        <Frame  CornerRadius="10">
+                         <Grid BackgroundColor="White">
+
+                      
+                        
+                    <!-- <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".35*"/>
+                        <ColumnDefinition Width=".55*"/>
+                            <ColumnDefinition Width=".10*"/>
+                    </Grid.ColumnDefinitions>
+
+                       <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        </Grid.RowDefinitions>-->
+
+                        
+                    <Label Text="Starting at:"  Grid.Row="0"  TextColor="#363E4B" FontAttributes="Bold" FontSize="Small" />
+                    <Label x:Name="sat" Margin="10,5,0,5"  Text="" Grid.Row="1"   FontSize="Micro" TextColor="Black" FontAttributes="Bold" HorizontalOptions="StartAndExpand"/>
+                        
+
+                    <Label Text="Duration:" Grid.Row="2" TextColor="#363E4B" FontAttributes="Bold" FontSize="Small" />
+                    <Label x:Name="dur" Margin="10,0,0,0" Text="" Grid.Row="3"  FontSize="Small" TextColor="#363E4B" FontAttributes="Bold" HorizontalOptions="StartAndExpand"/>
+
+                         
+                    <Label Text="Location:" TextColor="#363E4B" FontAttributes="Bold" FontSize="Small" Grid.Row="4" />
+                    <Label x:Name="loc" Margin="10,0,0,0" Text="" Grid.Row="5"  FontSize="Small" TextColor="#363E4B" FontAttributes="Bold" HorizontalOptions="StartAndExpand"/>
+
+                    <Label Text="Description:" TextColor="#363E4B" FontAttributes="Bold" FontSize="Small" Grid.Row="6" />
+                    <Label x:Name="des" Margin="10,0,0,0" Text="" Grid.Row="7"  FontSize="Small" TextColor="#363E4B" FontAttributes="Bold" HorizontalOptions="StartAndExpand"/>
+
+                                  </Grid>
+                               </Frame>
+                                </StackLayout>
+                        
+                        
+                  
+                </StackLayout>
+                              
+                
+                <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" Color="Black"/>
+
+            
+
+                 <StackLayout Padding="10,5,10,0" >
+                   <Frame  CornerRadius="10">
+                    
+                       
+                  <StackLayout>
+                             <Label Text="Attendees" TextColor="Black" FontAttributes="Bold" FontSize="Small" Margin="10,0"/> 
+
+                <Grid x:Name="attGrid" >
+
+                </Grid>
+
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                
+                <BoxView HeightRequest="5" BackgroundColor="Transparent"/>
+                
+                <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" Color="Black"/>
+                <BoxView HeightRequest="5" BackgroundColor="Transparent"/>
+
+                  <StackLayout Padding="10,0,10,0" >
+                   <Frame  CornerRadius="10">
+
+               <StackLayout>
+
+                <Label Text="Tags" TextColor="Black" FontSize="Small" FontAttributes="Bold" Margin="20,0"/>
+                                           
+                <Grid x:Name="tagsGrid" Padding="10,0">
+                        
+                </Grid>
+             </StackLayout>
+
+                  </Frame>
+                    </StackLayout>
+                 <BoxView HeightRequest="5" BackgroundColor="Transparent"/>
+
+                 <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" Color="Black"/>
+                
+                <BoxView HeightRequest="5" BackgroundColor="Transparent"/>
+                                                  
+                   <StackLayout Padding="10,0,0,0">                               
+             <Label Text="SIGN IN" TextColor="Black" FontAttributes="Bold"/>
+                    </StackLayout>
+
+                     <StackLayout Padding="20,0,0,0">                               
+            <!-- <Label Text="Time"  TextColor="Black" FontAttributes="Bold"/>-->
+                    <Label x:Name="sign_time" Text="" FontSize="Medium"/>
+                    </StackLayout>
+                
+                
+                <BoxView HeightRequest="5" BackgroundColor="Transparent"/>
+
+              <StackLayout Padding="10" BackgroundColor="Transparent">
+                <StackLayout Padding="10" BackgroundColor="#363E4B">
+                    <StackLayout  VerticalOptions="Center">            
+                    <maps:Map WidthRequest="400" HeightRequest="250"
+                  x:Name="MyMap"
+                  IsShowingUser="true"
+                  MapType="Street" />
+                     </StackLayout>
+                                      
+                     </StackLayout>
+                    
+               </StackLayout>
+
+                <Button Text="Set SignIn Location" TextColor="White" x:Name="signin_loc" IsVisible="true" Clicked="SignIn_ClickedAsync" HorizontalOptions="Center" BackgroundColor="#128197"/>
+                <Button Text="Cancel SignIn" TextColor="White" x:Name="cancel_signin" IsVisible="false" Clicked="CancelSignIn_ClickedAsync" HorizontalOptions="Center" BackgroundColor="#128197"/>
+
+              
+
+
+                  
+                <StackLayout Padding="20,0,20,0">
+                <Label Text="SIGN OUT"  TextColor="Black" FontAttributes="Bold"/>  
+                    </StackLayout>
+
+                <StackLayout Padding="20,0,0,0">                               
+            <!-- <Label Text="Time"  TextColor="Black" FontAttributes="Bold"/>-->
+                    <Label x:Name="signout_time" Text="" FontSize="Medium"/>
+                    </StackLayout>
+                                                   
+                    <StackLayout Padding="10" BackgroundColor="Transparent">
+                <StackLayout Padding="10" BackgroundColor="#363E4B">
+                    <StackLayout  VerticalOptions="Center">            
+                    <maps:Map WidthRequest="400" HeightRequest="250"
+                  x:Name="MyMap1"
+                  IsShowingUser="true"
+                  MapType="Street" />
+                     </StackLayout>
+
+                         </StackLayout>
+                            </StackLayout>
+                
+                     <BoxView HeightRequest="5" BackgroundColor="Transparent"/>   
+                    <Button Text="Set SignOut Location" TextColor="White" x:Name="signout_loc" Clicked="Signout_ClickedAsync" HorizontalOptions="Center" BackgroundColor="#FDA701"/>
+                    <Button Text="Cancel SignOut" TextColor="White" x:Name="cancel_signout" IsVisible="false" Clicked="CancelSignout_ClickedAsync" HorizontalOptions="Center" BackgroundColor="#FDA701" />
+
+                       
+                    
+     <BoxView HeightRequest="10" BackgroundColor="Transparent"/>
+                
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+  
+</pages:PopupPage>

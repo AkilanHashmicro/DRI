@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SalesApp.views.CRMLeadCreationPage"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+              xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+          
+            xmlns:controls1="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions">
+    <ContentPage.Content>
+        <ScrollView>
+        <StackLayout BackgroundColor="#F0EEEF">
+
+              <StackLayout BackgroundColor="#363E4B" x:Name="back" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="5">
+                    <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal">
+                        <Image x:Name="backImg"  Source="barrow108.png" Margin="10,5,0,5" WidthRequest="24" HeightRequest="24"  />
+                        <Label Text="Customer Creation" x:Name="HideLbl" Margin="15,3,0,5" HorizontalOptions="Center" FontSize="Large"  TextColor="White" />
+                    </StackLayout>
+                </StackLayout>
+
+   <StackLayout BackgroundColor="#F0EEEF" Padding="10">             
+                                
+        <StackLayout Padding="2,2,2,2" BackgroundColor="DarkGray">
+                    <StackLayout BackgroundColor="White" Padding="5,10,10,5">
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                            <ColumnDefinition Width="7*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <StackLayout>
+                    <StackLayout Grid.Row="0" Grid.Column="0" Padding="2,2,2,2" BackgroundColor="Gray">
+                                    
+                    <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer  Tapped="imgStackClicked" NumberOfTapsRequired="1">
+                    </TapGestureRecognizer>
+                     </StackLayout.GestureRecognizers>
+                                    
+                    <StackLayout BackgroundColor="White" Padding="2">
+                            <Image x:Name="user_img" Source="userprofile1.png" WidthRequest="20" HeightRequest="80" />
+                        </StackLayout>
+                    </StackLayout>
+                                <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal" Padding="2,2,2,2" BackgroundColor="Gray">
+                                    
+                                    <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal" Padding="1,1,1,1" BackgroundColor="Gray">
+                                        <StackLayout BackgroundColor="White" Padding="10,10,10,5">
+                                            <Image Source="edit.png" x:Name="imgEdit" HorizontalOptions="StartAndExpand"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                    <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal" Padding="1,1,1,1" BackgroundColor="Gray">
+                                        <StackLayout BackgroundColor="White" Padding="10,10,10,5">
+                                            <Image Source="bin.png" x:Name="imgDelete" HorizontalOptions="StartAndExpand"/>
+                                        </StackLayout>
+                                    </StackLayout>                                    
+                                </StackLayout >
+                    </StackLayout>
+                    <StackLayout Grid.Row="0" Grid.Column="1" Margin="10,0,0,0" BackgroundColor="White">
+                                                    
+                                <Grid>
+                                       <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1*" />
+                                        <ColumnDefinition Width="4*" />
+                                        <ColumnDefinition Width="1*" />
+                                        <ColumnDefinition Width="4*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image Source="empty1.png"  WidthRequest="20" HeightRequest="20" Grid.Row="0" Grid.Column="0" x:Name="empimg1" />
+                                    <Image Source="rbtn2.png" WidthRequest="20" HeightRequest="20" Grid.Row="0" Grid.Column="0" x:Name="fillimg1" IsVisible="true" />
+                                    <Label Grid.Row="0" Grid.Column="1" Text="Individual" TextColor="#363E4B"/>
+                                    <Image Source="empty1.png" WidthRequest="20" HeightRequest="20" Grid.Row="0" Grid.Column="2" x:Name="empimg2" />
+                                    <Image Source="rbtn2.png" WidthRequest="20" HeightRequest="20" Grid.Row="0" Grid.Column="2" x:Name="fillimg2" IsVisible="false"/>
+                                    <Label Grid.Row="0" Grid.Column="3" Text="Company" TextColor="#363E4B"/>
+
+                                </Grid>
+
+                                <StackLayout Orientation="Vertical" x:Name="indiPickerStack"  >
+                                    <Picker x:Name="indipicker"  Margin="10,0,0,0" />
+                                </StackLayout>
+
+                                <BoxView HeightRequest="5"/>
+
+                                <StackLayout Orientation="Vertical"  >
+
+                                    <Label Text="Name"  TextColor="#363E4B"  FontSize="Medium" />
+                                    <Entry Text="" x:Name="name_entry" Margin="10,0,0,0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Placeholder="Sample" PlaceholderColor="DarkGray" FontSize="Medium" />
+                                </StackLayout>
+
+                                    <Grid Padding="0,0,0,0" x:Name="name_alert" IsVisible="false">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="8*" />
+                                </Grid.ColumnDefinitions>
+                <Image x:Name="usernameAlert"  Source="emptyAlert.png" WidthRequest="18" HeightRequest="18" HorizontalOptions="Start" Grid.Row="0" Grid.Column="0"/>
+
+                 <Label x:Name="usernameAlertText" Text="Name should not be empty." FontSize="Micro" TextColor="#ce434a" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center"/>
+                                             
+                </Grid>
+
+           </StackLayout>
+                                                            
+                </Grid>
+            </StackLayout>
+        </StackLayout>
+
+         <BoxView HeightRequest="5"/>
+                
+            <StackLayout Orientation="Vertical"  >
+                <Label Text="Street 1" TextColor="#363E4B"  FontSize="Medium" />
+                <Entry  x:Name="street1Entry" Margin="10,0,0,0" Placeholder="Address" PlaceholderColor="DarkGray" FontSize="Medium" />
+            </StackLayout>
+            <BoxView HeightRequest="5"/>
+
+                <StackLayout Orientation="Vertical"  >
+                <Label Text="Street 2" TextColor="#363E4B" FontSize="Medium" />
+                <Entry  x:Name="street2Entry" Margin="10,0,0,0" Placeholder="Address" PlaceholderColor="DarkGray" FontSize="Medium" />
+            </StackLayout>
+            <BoxView HeightRequest="5"/>
+
+                <StackLayout Orientation="Vertical"  >
+                <Label Text="City" TextColor="#363E4B" x:Name="city"   FontSize="Medium" />
+                <Entry  x:Name="cityEntry" Margin="10,0,0,0" Placeholder="City" PlaceholderColor="DarkGray" FontSize="Medium" />
+                </StackLayout>
+
+                <BoxView HeightRequest="5"/>
+
+                <StackLayout Orientation="Vertical"  >
+                <Label Text="State" x:Name="state" TextColor="#363E4B"  FontSize="Medium" />
+                <Picker  x:Name="statePicker" Title="Select State" Margin="10,0,0,0" />
+                </StackLayout>
+
+                <BoxView HeightRequest="5"/>
+
+                <StackLayout Orientation="Vertical"  >
+                <Label Text="Zip" x:Name="zip" TextColor="#363E4B"  FontSize="Medium" />
+                <Entry  x:Name="zipEntry" Margin="10,0,0,0" Placeholder="City" PlaceholderColor="DarkGray" FontSize="Medium" />
+                </StackLayout>
+
+                <BoxView HeightRequest="5"/>
+
+                <StackLayout Orientation="Vertical"  >
+                <Label Text="Country" TextColor="#363E4B"  FontSize="Medium" />
+                <Picker  x:Name="countryPicker" Title="Select Country" Margin="10,0,0,0"/>
+                </StackLayout>
+
+                <BoxView HeightRequest="5"/>
+                
+            <StackLayout Orientation="Vertical"  >
+                <Label Text="Website" TextColor="#363E4B"  FontSize="Medium" />
+                <Entry x:Name="webEntry"   Margin="10,0,0,0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Placeholder="Sample" PlaceholderColor="DarkGray" FontSize="Medium" />
+            </StackLayout>
+
+            <BoxView HeightRequest="5"/>
+                
+        <Label Text="Tags" TextColor="#363E4B"  FontSize="Medium" />      
+
+                  <Frame CornerRadius="20" BackgroundColor="#f0eaea" VerticalOptions="FillAndExpand" Padding="0" >
+                     <StackLayout Padding="10,0" > 
+                           <ListView x:Name="tagsListView" SeparatorColor="Blue" HeightRequest="0" >
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>                                        
+                                         <Grid>                                            
+                                        <Grid.ColumnDefinitions>
+                                      <ColumnDefinition Width=".7*"/>
+                                      <ColumnDefinition Width=".3*"/>
+                                        </Grid.ColumnDefinitions>  
+
+                                       <Label Grid.Column="0" Text="{Binding name}" TextColor="#363E4B" FontSize="Small" FontAttributes="Bold" VerticalTextAlignment="Center" />                                                                                                     
+
+                                             <Image Grid.Column="1" x:Name="cancelImg" Source="cancel.png" WidthRequest="10" HeightRequest="10" Margin="10" >
+                                                 <Image.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="tagsListviewcloseClicked" CommandParameter="{Binding .}" />
+                                                        </Image.GestureRecognizers>
+                                             </Image>
+                                        </Grid>
+                                        </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>  
+                            </Frame>
+
+                <StackLayout  Padding="10,0" x:Name="Addbtn1" IsVisible="false" >
+                    <Image x:Name="AddAirCon2"  Source="add_icon.png" WidthRequest="25" HeightRequest="25" HorizontalOptions="Start"/>
+                  </StackLayout>
+
+
+             <StackLayout Orientation="Vertical" x:Name="tagsgrid">                
+                <Picker Margin="10,0,0,0" TextColor="#363E4B" x:Name="tagspicker" SelectedIndexChanged="tagsPickerSelectedIndexChanged" />                                 
+               </StackLayout>
+               
+
+                <BoxView HeightRequest="5"/>
+
+                <StackLayout Orientation="Vertical"  >
+
+                <Label Text="Job Position" TextColor="#363E4B"  FontSize="Medium" />
+                <Entry  Margin="10,0,0,0" x:Name="jobposttion" Placeholder="Sample" PlaceholderColor="DarkGray" FontSize="Medium" />
+            </StackLayout>
+
+            <BoxView HeightRequest="5"/>
+
+            <StackLayout Orientation="Vertical"  >
+
+                <Label Text="Phone" TextColor="#363E4B"   FontSize="Medium" />
+                <Entry  x:Name="phoneEntry" Margin="10,0,0,0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Placeholder="Sample" PlaceholderColor="DarkGray" FontSize="Medium" />
+            </StackLayout>
+
+
+            <BoxView HeightRequest="5"/>
+
+            <StackLayout Orientation="Vertical"  >
+
+                <Label Text="Mobile" TextColor="#363E4B"   FontSize="Medium" />
+                <Entry x:Name="mobileEntry"  Margin="10,0,0,0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Placeholder="Sample" PlaceholderColor="DarkGray" FontSize="Medium" />
+            </StackLayout>
+
+            <BoxView HeightRequest="5"/>
+           
+            <StackLayout Orientation="Vertical" >
+
+                <Label Text="Email"  TextColor="#363E4B"  FontSize="Medium" />
+                <Entry x:Name="mailEntry" Margin="10,0,0,0" Placeholder="Sample" VerticalOptions="FillAndExpand" PlaceholderColor="DarkGray" FontSize="Medium" />
+            </StackLayout>
+
+            <BoxView HeightRequest="5"/>
+
+                <StackLayout BackgroundColor="#363E4B">
+            <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal" >
+
+                <Label Margin="10,20,0,0" Text="Contacts and Addresses" TextColor="White" FontSize="Medium"/>
+                <Button Margin="30,10,5,10" Text="Create" TextColor="White"  BackgroundColor="#128197"  FontSize="Small" Clicked="CRMCreateButton_Clicked"  />
+            </StackLayout>
+                </StackLayout>
+
+                <StackLayout>
+                        <StackLayout BackgroundColor="Transparent" Orientation="Vertical"  Padding="10, 0, 0, 0">                            
+                            <Label  x:Name="SelectDate" Text="Contacts :" IsEnabled="False" TextColor="Black" FontSize="Medium"/>
+                        </StackLayout>
+
+                        <BoxView Color="Transparent" HeightRequest="10"/>
+
+                        <ListView x:Name="ContactListView" RowHeight="90" SeparatorColor="White" >
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell Tapped="ViewCellPending_Tapped">                                        
+
+                                    <Grid Padding="0,10,0,10">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width=".3*" />
+                                                <ColumnDefinition Width=".6*" />
+                                            </Grid.ColumnDefinitions>
+                                            <StackLayout Grid.Row="0" Grid.Column="0">
+                                                <controls1:CircleImage Source="{Binding Image}" Aspect="AspectFill" HeightRequest="80" />
+                                            </StackLayout>
+                                            <StackLayout Grid.Row="0" Grid.Column="1" >
+                                                <Label Text="{Binding Name}" TextColor="Gray" FontSize="Medium" FontAttributes="Bold"/>
+                                                <Label Text="{Binding Mobile}"  />
+                                                <Label Text="{Binding Email}" FontSize="Small"/>
+                                            </StackLayout>
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>                    
+                </StackLayout>
+
+                 <BoxView HeightRequest="30" Color="Transparent"/>
+                                 
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Padding="5, 5, 5, 0">
+
+                <Button Text="Save" TextColor="White"  BackgroundColor="Black"  FontSize="Small" HorizontalOptions="CenterAndExpand" Clicked="save_ClickedAsync" />
+
+                        <Button Text="Cancel" TextColor="Black" BackgroundColor="White" FontSize="Small" HorizontalOptions="CenterAndExpand" Clicked="cancel_Clicked" />
+            </StackLayout>
+            </StackLayout>
+                    
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</pages:PopupPage>

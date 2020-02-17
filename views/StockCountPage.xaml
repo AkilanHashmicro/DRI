@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="SalesApp.views.StockCountPage" Title="Stock Count" >
+
+   <!-- <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="search.png" Activated="Toolbar_Filter_Activated"></ToolbarItem>
+    </ContentPage.ToolbarItems>-->
+
+    <ContentPage.Content>
+
+        <StackLayout VerticalOptions="FillAndExpand" >
+            <SearchBar x:Name="searchBar" Text="" Placeholder="You can search product here" TextColor="Black" TextChanged="SearchBar_TextChanged" HorizontalOptions="FillAndExpand" IsVisible="False"/>
+            <StackLayout x:Name="pro_stock">
+                <StackLayout x:Name="productlabel" >
+                    <StackLayout Margin="5">
+                        <BoxView HeightRequest="5" BackgroundColor="Transparent"/>
+                        <Label Text="Products List" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
+                    </StackLayout>
+                    <StackLayout Padding="10,0,10,0">
+                        <Frame x:Name="frame_product" HasShadow="True" CornerRadius="5" Padding="1,1,1,1" >
+                            <ListView x:Name="stockcountListView" BackgroundColor="White" IsPullToRefreshEnabled="False" ItemTapped="stockcountListView_ItemTapped">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout VerticalOptions="FillAndExpand" Orientation="Vertical" Padding="10">
+
+                                                <Label Text="{Binding Name}"  FontSize="Small"  VerticalTextAlignment="Center" TextColor="Black"/>
+
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </Frame>
+                    </StackLayout>
+                </StackLayout>
+
+            </StackLayout>
+
+            <BoxView HeightRequest="10" BackgroundColor="Transparent"/>
+
+
+            <SearchBar x:Name="warehousesBar" Text="" Placeholder="You can search warehouse here" TextColor="Black" TextChanged="warehousesBar_TextChanged"  HorizontalOptions="FillAndExpand" IsVisible="False" />
+            <StackLayout x:Name="wh_stock" IsVisible="False" VerticalOptions="FillAndExpand">
+                <StackLayout x:Name="locationlabel" >
+                    <StackLayout Margin="5">
+                        <BoxView HeightRequest="5" BackgroundColor="Transparent"/>
+                        <Label  Text="Locations List" TextColor="Black" FontSize="Medium" FontAttributes="Bold" />
+                    </StackLayout>
+                    <StackLayout Padding="10,0,10,0">
+                        <Frame x:Name="frame_location" HasShadow="True" CornerRadius="5" Padding="1,1,1,1">
+                            <ListView x:Name="warehouseListview" IsPullToRefreshEnabled="False"  ItemTapped="warehouseListview_ItemTapped">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout VerticalOptions="FillAndExpand" Orientation="Vertical" Padding="10" >
+
+                                                <Label Text="{Binding name}" FontSize="Small" VerticalTextAlignment="Center" TextColor="Black"/>
+
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </Frame>
+                    </StackLayout>
+                </StackLayout>
+
+            </StackLayout>
+
+            <StackLayout x:Name="btn_layout" IsVisible="false" >
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Padding="5, 5, 5, 0" x:Name="update_stack">
+                    <Button Text="Cancel" TextColor="White" BackgroundColor="Black" FontSize="Small" HorizontalOptions="CenterAndExpand" Clicked="cancel_Clicked"/>
+                    <Button Text="Search" TextColor="White"  BackgroundColor="Black"  FontSize="Small" HorizontalOptions="CenterAndExpand" Clicked="search_Clicked" />
+                </StackLayout>
+
+            </StackLayout>
+
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

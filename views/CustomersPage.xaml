@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SalesApp.views.CustomersPage"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+            xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             Title=" Customers" BackgroundColor="#F0EEEF">   <!--xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"-->
+
+    <ContentPage.Content>
+        <ScrollView>
+            <RelativeLayout >
+                <ContentView RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"  
+             RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}">
+
+
+                    
+                    <StackLayout>
+
+                    <StackLayout>
+                        <SearchBar x:Name="searchBar" Text="" Placeholder="search customer" TextColor="Black" TextChanged="SearchBar_TextChanged" HorizontalOptions="FillAndExpand" /> 
+                  </StackLayout>
+                        
+                       <ListView x:Name="Customerlist" ItemTapped="CustomerListView_ItemTappedAsync" SeparatorColor=" Black" BackgroundColor="#F0EEEF" HasUnevenRows="True">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell Tapped="ViewCell_Tapped">
+                                        <!--<Grid Padding="0,10,0,10">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width=".3*" />
+                                                <ColumnDefinition Width=".6*" />
+                                            </Grid.ColumnDefinitions>
+                                            <StackLayout Grid.Row="0" Grid.Column="0">
+                                                <Image Source="{Binding CustomerImg}" HeightRequest="80" />
+                                            </StackLayout>
+                                            <StackLayout Grid.Row="0" Grid.Column="1" >
+                                                <Label Text="{Binding name}" TextColor="Gray" FontSize="Medium" FontAttributes="Bold"/>
+                                                <Label Text="{Binding city}"  />
+                                                <Label Text="{Binding email}" FontSize="Small"/>
+                                            </StackLayout>
+                                        </Grid>-->
+
+                                        <Frame BackgroundColor="#FFFFFF" HasShadow="True" Margin="10,5,10,5" CornerRadius="6" HeightRequest="60" >
+
+                                            <Grid Padding="0">
+                                                <!--<Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width=".2*" />
+                                                    <ColumnDefinition Width=".8*" />
+                                                </Grid.ColumnDefinitions>-->
+                                                <!--<StackLayout Grid.Row="0" Grid.Column="0" >
+                                                    <controls:CircleImage Aspect="AspectFit" Source="{Binding CustomerImg}"  HeightRequest="60" WidthRequest="60" >
+                                                    </controls:CircleImage>
+                                                </StackLayout>-->
+                                                <StackLayout   Margin="20,5,0,0">
+                                                    <Label Text="{Binding name}" TextColor="Gray" Font="16" FontAttributes="Bold"/>
+                                                    <!--<Label Text="{Binding city}"  />-->
+                                                    <Label Text="{Binding email}" FontSize="Small" />
+                                                    <!--<Label.FontFamily>
+                                                        <OnPlatform x:TypeArguments="x:String" Android="Roboto-Light" iOS="Helvetica-Light"/>
+                                                    </Label.FontFamily>-->
+
+                                                </StackLayout>
+                                            </Grid>
+                                        </Frame>
+
+                                        
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+
+                </ContentView>
+                <Image Source="fab.png" x:Name="plus" WidthRequest="50" HeightRequest="60" 
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-55}"  
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-65}" />
+            </RelativeLayout>
+        </ScrollView>
+    </ContentPage.Content>
+
+
+</ContentPage>
+
+
+
+
+
+

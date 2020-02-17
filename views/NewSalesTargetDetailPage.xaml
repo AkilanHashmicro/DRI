@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="SalesApp.views.NewSalesTargetDetailPage" Title="Sales Target Detail">
+    <ContentPage.Content>
+   <ScrollView>
+            <StackLayout Padding="0,10,0,0">
+                
+           <StackLayout Padding="10,10,10,0">
+
+                    <StackLayout>
+                        <Label Text="Name" TextColor="#363E4B" FontAttributes="Bold" FontSize="Medium" />
+                        <Label Text=""  x:Name="name_val" FontSize="Medium"  TextColor="Black" Margin="10,0,0,0" />
+
+                    </StackLayout>
+
+                       <BoxView HeightRequest="5" BackgroundColor="Transparent"/>
+
+                    <StackLayout>
+                        <Label Text="Commission Type" TextColor="#363E4B" FontAttributes="Bold" FontSize="Medium" />
+                        <Label Text="" x:Name="com_val"  FontSize="Medium" TextColor="Black"  Margin="10,0,0,0"/>
+                    </StackLayout>
+
+                    <BoxView HeightRequest="20" BackgroundColor="Transparent"/>
+                       </StackLayout>
+                
+<!--/**************  Brand Starts Here   ***************/-->
+                
+
+                <StackLayout Padding="10,0,0,0" Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                    <Image x:Name="openimg_brand" Margin="0,2,0,0" Source="riarrow.png" WidthRequest="25" HeightRequest="25"/>
+                     <Image x:Name="closeimg_brand" Margin="0,2,0,0" Source="larrow.png" WidthRequest="25" HeightRequest="25" IsVisible="false"/>
+                    <Label Text="Brand" FontSize="Medium" TextColor="#363E4B" FontAttributes="Bold"/>
+                </StackLayout>
+
+                <StackLayout Padding="5">
+
+                 <Grid BackgroundColor="#128197"  x:Name="brandGrid" IsVisible="false"  >
+                            
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".40*"/>
+                        <ColumnDefinition Width=".20*"/>
+                        <ColumnDefinition Width=".20*"/>
+                        <ColumnDefinition Width=".20*"/>
+                    </Grid.ColumnDefinitions>
+                            
+                 <!--  <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="0"  HorizontalOptions="Start" BackgroundColor="White"/>-->
+                     <Label Grid.Row="0" Grid.Column="0" Text="Brand"  TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="0"  HorizontalOptions="End" BackgroundColor="White"/>
+                    
+                    <Label Grid.Row="0" Grid.Column="1" Text="Min Target" Margin="2,0,0,0" TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="1"  HorizontalOptions="End" BackgroundColor="White"/>
+
+                    <Label Grid.Row="0" Grid.Column="2" Text="Max Target"  Margin="2,0,0,0" TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="2"  HorizontalOptions="End" BackgroundColor="White"/>
+                   
+                    <Label Grid.Row="0" Grid.Column="3" Text="Comm Amt" TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HorizontalTextAlignment="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="3"  HorizontalOptions="End" BackgroundColor="White"/>
+                   
+                </Grid>
+
+
+                </StackLayout>
+              
+                  <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" x:Name="brandList" Padding="10,0,10,0" IsVisible="false" >
+                    <ListView SeparatorColor="Blue"   x:Name="brandListview" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                                <ViewCell Tapped="ViewCell_Tapped">
+                                    <Grid>
+                                        
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width=".40*"/>
+                                            <ColumnDefinition Width=".20*"/>
+                                            <ColumnDefinition Width=".20*"/>
+                                            <ColumnDefinition Width=".20*"/>
+                                        </Grid.ColumnDefinitions>
+                                        
+                                        <StackLayout Grid.Column="0">                                           
+                                        <Label x:Name="brand"  Text="{Binding brand}" Margin="5" TextColor="#102b1e"  HorizontalOptions="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"/>
+                                        </StackLayout>
+                                        
+                                        <StackLayout Grid.Column="1">                                           
+                                        <Label x:Name="mintarget"  Text="{Binding min_target}" Margin="5" TextColor="#102b1e"  HorizontalOptions="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"/>
+                                        </StackLayout>
+                                        
+                                        <StackLayout Grid.Column="2">
+                                            <Label  x:Name="maxtarget"  Text="{Binding max_target}" TextColor="#102b1e" Margin="5" HorizontalOptions="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"/>
+                                        </StackLayout>
+                                        
+                                        <StackLayout Grid.Column="3">
+                                            <Label   Text="{Binding amount}" Margin="5" TextColor="#102b1e" HorizontalOptions="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"/>
+                                         </StackLayout>
+                                        
+                                                </Grid>
+                                            </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                   </StackLayout>
+
+                <BoxView HeightRequest="10" BackgroundColor="Transparent"/>
+
+
+<!--/**************  Category Starts Here   ***************/-->
+
+                <StackLayout Padding="10,0,0,0" Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                    <Image x:Name="openimg_cat" Margin="0,2,0,0" Source="riarrow.png" WidthRequest="25" HeightRequest="25"/>
+                     <Image x:Name="closeimg_cat" Margin="0,2,0,0" Source="larrow.png" WidthRequest="25" HeightRequest="25" IsVisible="false"/>
+                    <Label Text="Category" FontSize="Medium" TextColor="#363E4B" FontAttributes="Bold"/>
+                </StackLayout>
+
+                  <StackLayout Padding="5">
+
+                  <Grid BackgroundColor="#128197"  x:Name="catGrid" IsVisible="false"  >
+                            
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".40*"/>
+                        <ColumnDefinition Width=".20*"/>
+                        <ColumnDefinition Width=".20*"/>
+                        <ColumnDefinition Width=".20*"/>
+                    </Grid.ColumnDefinitions>
+                            
+                 <!--  <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="0"  HorizontalOptions="Start" BackgroundColor="White"/>-->
+                     <Label Grid.Row="0" Grid.Column="0" Text="Category"  TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="0"  HorizontalOptions="End" BackgroundColor="White"/>
+                    
+                    <Label Grid.Row="0" Grid.Column="1" Text="Min Target" Margin="2,0,0,0" TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="1"  HorizontalOptions="End" BackgroundColor="White"/>
+
+                    <Label Grid.Row="0" Grid.Column="2" Text="Max Target"  Margin="2,0,0,0" TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="2"  HorizontalOptions="End" BackgroundColor="White"/>
+                   
+                    <Label Grid.Row="0" Grid.Column="3" Text="Comm Amt" TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HorizontalTextAlignment="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="3"  HorizontalOptions="End" BackgroundColor="White"/>
+                   
+                  </Grid>
+
+                </StackLayout>
+
+                     <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" x:Name="catList" Padding="10,0,10,0" IsVisible="false" >
+                    <ListView SeparatorColor="Blue"   x:Name="catListview" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                                <ViewCell Tapped="ViewCell_Tapped">
+                                    <Grid>
+                                        
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width=".40*"/>
+                                            <ColumnDefinition Width=".20*"/>
+                                            <ColumnDefinition Width=".20*"/>
+                                            <ColumnDefinition Width=".20*"/>
+                                        </Grid.ColumnDefinitions>
+                                        
+                                        <StackLayout Grid.Column="0">                                           
+                                        <Label x:Name="brand"  Text="{Binding brand}" Margin="5" TextColor="#102b1e"  HorizontalOptions="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"/>
+                                        </StackLayout>
+                                        
+                                        <StackLayout Grid.Column="1">                                           
+                                        <Label x:Name="mintarget"  Text="{Binding min_target}" Margin="5" TextColor="#102b1e"  HorizontalOptions="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"/>
+                                        </StackLayout>
+                                        
+                                        <StackLayout Grid.Column="2">
+                                            <Label  x:Name="maxtarget"  Text="{Binding max_target}" TextColor="#102b1e" Margin="5" HorizontalOptions="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"/>
+                                        </StackLayout>
+                                        
+                                        <StackLayout Grid.Column="3">
+                                            <Label   Text="{Binding amount}" Margin="5" TextColor="#102b1e" HorizontalOptions="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"/>
+                                         </StackLayout>
+                                        
+                                                </Grid>
+                                            </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                   </StackLayout>
+
+                    <BoxView HeightRequest="10" BackgroundColor="Transparent"/>
+                
+<!--/**************  Sub Category Starts Here   ***************/-->
+
+                <StackLayout Padding="10,0,0,0" Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                    <Image x:Name="openimg_subcat" Margin="0,2,0,0" Source="riarrow.png" WidthRequest="25" HeightRequest="25"/>
+                     <Image x:Name="closeimg_subcat" Margin="0,2,0,0" Source="larrow.png" WidthRequest="25" HeightRequest="25" IsVisible="false"/>
+                    <Label Text="Sub Category" FontSize="Medium" TextColor="#363E4B" FontAttributes="Bold"/>
+                </StackLayout>
+
+                  <StackLayout Padding="5">
+
+                  <Grid BackgroundColor="#128197"  x:Name="subcatGrid" IsVisible="false"  >
+                            
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".40*"/>
+                        <ColumnDefinition Width=".20*"/>
+                        <ColumnDefinition Width=".20*"/>
+                        <ColumnDefinition Width=".20*"/>
+                    </Grid.ColumnDefinitions>
+                            
+                 <!--  <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="0"  HorizontalOptions="Start" BackgroundColor="White"/>-->
+                     <Label Grid.Row="0" Grid.Column="0" Text="Sub Category"  TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="0"  HorizontalOptions="End" BackgroundColor="White"/>
+                    
+                    <Label Grid.Row="0" Grid.Column="1" Text="Min Target" Margin="2,0,0,0" TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="1"  HorizontalOptions="End" BackgroundColor="White"/>
+
+                    <Label Grid.Row="0" Grid.Column="2" Text="Max Target"  Margin="2,0,0,0" TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="2"  HorizontalOptions="End" BackgroundColor="White"/>
+                   
+                    <Label Grid.Row="0" Grid.Column="3" Text="Comm Amt" TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HorizontalTextAlignment="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="3"  HorizontalOptions="End" BackgroundColor="White"/>
+                   
+                  </Grid>
+
+                </StackLayout>
+
+                     <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" x:Name="subcatList" Padding="10,0,10,0" IsVisible="false" >
+                    <ListView SeparatorColor="Blue" HasUnevenRows="true"  x:Name="subcatListview" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                                <ViewCell Tapped="ViewCell_Tapped">
+                                    <Grid>
+                                        
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width=".40*"/>
+                                            <ColumnDefinition Width=".20*"/>
+                                            <ColumnDefinition Width=".20*"/>
+                                            <ColumnDefinition Width=".20*"/>
+                                        </Grid.ColumnDefinitions>
+                                        
+                                        <StackLayout Grid.Column="0">                                           
+                                        <Label x:Name="brand"  Text="{Binding brand}" Margin="5" TextColor="#102b1e"  HorizontalOptions="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"/>
+                                        </StackLayout>
+                                        
+                                        <StackLayout Grid.Column="1">                                           
+                                        <Label x:Name="mintarget"  Text="{Binding min_target}" Margin="5" TextColor="#102b1e"  HorizontalOptions="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"/>
+                                        </StackLayout>
+                                        
+                                        <StackLayout Grid.Column="2">
+                                            <Label  x:Name="maxtarget"  Text="{Binding max_target}" TextColor="#102b1e" Margin="5" HorizontalOptions="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"/>
+                                        </StackLayout>
+                                        
+                                        <StackLayout Grid.Column="3">
+                                            <Label   Text="{Binding amount}" Margin="5" TextColor="#102b1e" HorizontalOptions="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"/>
+                                         </StackLayout>
+                                        
+                                                </Grid>
+                                            </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                   </StackLayout>
+
+                    <BoxView HeightRequest="10" BackgroundColor="Transparent"/>
+
+
+
+
+ <!--/**************  Product Starts Here   ***************/-->
+
+                <StackLayout Padding="10,0,0,0" Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                    <Image x:Name="openimg_product" Margin="0,2,0,0" Source="riarrow.png" WidthRequest="25" HeightRequest="25"/>
+                     <Image x:Name="closeimg_product" Margin="0,2,0,0" Source="larrow.png" WidthRequest="25" HeightRequest="25" IsVisible="false"/>
+                    <Label Text="Product" FontSize="Medium" TextColor="#363E4B" FontAttributes="Bold"/>
+                </StackLayout>
+
+                  <StackLayout Padding="5">
+
+                  <Grid BackgroundColor="#128197"  x:Name="productGrid" IsVisible="false"  >
+                            
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".40*"/>
+                        <ColumnDefinition Width=".20*"/>
+                        <ColumnDefinition Width=".20*"/>
+                        <ColumnDefinition Width=".20*"/>
+                    </Grid.ColumnDefinitions>
+                            
+                 <!--  <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="0"  HorizontalOptions="Start" BackgroundColor="White"/>-->
+                     <Label Grid.Row="0" Grid.Column="0" Text="Product"  TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="0"  HorizontalOptions="End" BackgroundColor="White"/>
+                    
+                    <Label Grid.Row="0" Grid.Column="1" Text="Min Target"  TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="1"  HorizontalOptions="End" BackgroundColor="White"/>
+
+                    <Label Grid.Row="0" Grid.Column="2" Text="Max Target"   TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="2"  HorizontalOptions="End" BackgroundColor="White"/>
+                   
+                    <Label Grid.Row="0" Grid.Column="3" Text="Comm Amt" TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HorizontalTextAlignment="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="3"  HorizontalOptions="End" BackgroundColor="White"/>
+                   
+                  </Grid>
+
+                </StackLayout>
+
+                     <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" x:Name="productList" Padding="10,0,10,0" IsVisible="false" >
+                    <ListView SeparatorColor="Blue"   x:Name="productListview" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                                <ViewCell Tapped="ViewCell_Tapped">
+                                    <Grid>
+                                        
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width=".40*"/>
+                                            <ColumnDefinition Width=".20*"/>
+                                            <ColumnDefinition Width=".20*"/>
+                                            <ColumnDefinition Width=".20*"/>
+                                        </Grid.ColumnDefinitions>
+                                        
+                                        <StackLayout Grid.Column="0">                                           
+                                        <Label x:Name="brand"  Text="{Binding brand}" Margin="5" TextColor="#102b1e"  HorizontalOptions="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"/>
+                                        </StackLayout>
+                                        
+                                        <StackLayout Grid.Column="1">                                           
+                                        <Label x:Name="mintarget"  Text="{Binding min_target}" Margin="5" TextColor="#102b1e"  HorizontalOptions="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"/>
+                                        </StackLayout>
+                                        
+                                        <StackLayout Grid.Column="2">
+                                            <Label  x:Name="maxtarget"  Text="{Binding max_target}" TextColor="#102b1e" Margin="5" HorizontalOptions="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"/>
+                                        </StackLayout>
+                                        
+                                        <StackLayout Grid.Column="3">
+                                            <Label   Text="{Binding amount}" Margin="5" TextColor="#102b1e" HorizontalOptions="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"/>
+                                         </StackLayout>
+                                        
+                                                </Grid>
+                                            </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                   </StackLayout>
+
+                    <BoxView HeightRequest="10" BackgroundColor="Transparent"/>
+                
+        </StackLayout>
+
+    </ScrollView>
+
+        
+    </ContentPage.Content>
+</ContentPage>

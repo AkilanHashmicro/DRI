@@ -1,0 +1,669 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SalesApp.views.ActivePromotionDetailPage"
+              xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"   
+             Title="Active Promotions Detail">
+    <ContentPage.Content>
+    <ScrollView>
+            <StackLayout Padding="0,0,0,0" BackgroundColor="#F0EEEF">
+
+
+               <Grid BackgroundColor="#363E4B" Padding="5">
+                    
+                   <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".15*"/>
+                        <ColumnDefinition Width=".75*"/>
+                            <ColumnDefinition Width=".10*"/>
+                    </Grid.ColumnDefinitions>
+                                       
+                    <StackLayout Grid.Column="0">
+                        <Image x:Name="backImg"  Source="barrow108.png" Margin="0,5,0,5" WidthRequest="24" HeightRequest="24"  />
+                    </StackLayout>
+
+                    <StackLayout Grid.Column="1">
+                        <Label Text="Active Promotions Details" x:Name="HideLbl" Margin="0,2,0,0" HorizontalOptions="Center" FontSize="Medium" FontAttributes="Bold" TextColor="White" />
+                    </StackLayout>
+
+                    <StackLayout Grid.Column="2">
+                       <!--  <Image x:Name="toolImg"  Source="edittool.png"  WidthRequest="24" HeightRequest="24"  />-->
+                    </StackLayout>
+                  
+               </Grid>
+                
+                
+           <StackLayout Padding="10,10,10,0">
+
+           <Label Text="Test1" x:Name="title" TextColor="#363E4B" HorizontalOptions="Center" FontAttributes="Bold" FontSize="Medium" />
+
+                <BoxView HeightRequest="5" BackgroundColor="Transparent"/>     
+                    
+                    <StackLayout>
+                        <Label Text="Type" TextColor="#363E4B" FontAttributes="Bold" FontSize="Medium" />
+                        <Label Text=""  x:Name="type_val" FontSize="Medium"  TextColor="Black" Margin="10,0,0,0" />
+
+                    </StackLayout>
+
+                       <BoxView HeightRequest="5" BackgroundColor="Transparent"/>
+
+                    <StackLayout>
+                        <Label Text="Product Service" TextColor="#363E4B" FontAttributes="Bold" FontSize="Medium" />
+                        <Label Text="" x:Name="proservice_val"  FontSize="Medium" TextColor="Black"  Margin="10,0,0,0"/>
+                    </StackLayout>
+
+                          <BoxView HeightRequest="5" BackgroundColor="Transparent"/>
+
+                    <StackLayout>
+                        <Label Text="Start Date" TextColor="#363E4B" FontAttributes="Bold" FontSize="Medium" />
+                        <Label Text="" x:Name="startdate_val"  FontSize="Medium" TextColor="Black"  Margin="10,0,0,0"/>
+                    </StackLayout>
+
+                          <BoxView HeightRequest="5" BackgroundColor="Transparent"/>
+
+                    <StackLayout>
+                        <Label Text="End Date" TextColor="#363E4B" FontAttributes="Bold" FontSize="Medium" />
+                        <Label Text="" x:Name="enddate_val"  FontSize="Medium" TextColor="Black"  Margin="10,0,0,0"/>
+                    </StackLayout>
+
+                    <BoxView HeightRequest="20" BackgroundColor="Transparent"/>
+
+                      </StackLayout> 
+
+              
+                       
+
+
+
+ <!--1111....Discount on Total Order-->
+                
+                <StackLayout x:Name="one_dis_on_totorder_stack" IsVisible="false">
+
+                    <Label Margin="5" Text="Discounts on Total Order" FontSize="Medium" FontAttributes="Bold" TextColor="Black"  />    
+
+                     <Grid BackgroundColor="#128197"   >
+                            
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".60*"/>                       
+                        <ColumnDefinition Width=".40*"/>
+                    </Grid.ColumnDefinitions>
+                            
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="0"  HorizontalOptions="Start" BackgroundColor="White"/>
+                    <Label Grid.Row="0" Grid.Column="0" Text="Amount Total"  TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="0"  HorizontalOptions="End" BackgroundColor="White"/>
+
+                    <Label Grid.Row="0" Grid.Column="1" Text="Discount % " TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="1"  HorizontalOptions="End" BackgroundColor="White"/>
+                  
+                    </Grid>
+
+                   <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand"  Padding="10,0,10,0">
+                        <ListView SeparatorColor="Blue"   x:Name="one_dis_on_totorderListview"  >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                    <ViewCell Tapped="ViewCell_Tapped">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width=".60*"/>
+                                                 <ColumnDefinition Width=".40*"/>
+                                            </Grid.ColumnDefinitions>
+                                          
+                                            <StackLayout Grid.Column="0">                                           
+                                            <Label  Text="{Binding minimum_amount}" Margin="5" TextColor="#102b1e"  HorizontalOptions="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"/>
+                                            </StackLayout>
+                                            <StackLayout Grid.Column="1">
+                                                <Label   Text="{Binding discount}" TextColor="#102b1e" Margin="5" HorizontalOptions="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"/>
+                                                </StackLayout>
+                                           
+                                                    </Grid>
+                                                </ViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </StackLayout>
+
+                </StackLayout>
+
+<!--22222...Discount on Categories-->
+
+
+                <StackLayout x:Name="two_dis_on_cat_stack" IsVisible="false">
+
+                     <Label Margin="5" Text="Discount on Categories" FontSize="Medium" FontAttributes="Bold" TextColor="Black"  />    
+
+                     <Grid BackgroundColor="#128197"   >
+                            
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".70*"/>                       
+                        <ColumnDefinition Width=".30*"/>
+                    </Grid.ColumnDefinitions>
+                            
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="0"  HorizontalOptions="Start" BackgroundColor="White"/>
+                    <Label Grid.Row="0" Grid.Column="0" Text="Product Category"  TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="0"  HorizontalOptions="End" BackgroundColor="White"/>
+
+                    <Label Grid.Row="0" Grid.Column="1" Text="Discount % " TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="1"  HorizontalOptions="End" BackgroundColor="White"/>
+                  
+                    </Grid>
+
+                       <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand"  Padding="10,0,10,0">
+                        <ListView SeparatorColor="Blue"   x:Name="two_dis_on_catListview"  >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                    <ViewCell Tapped="ViewCell_Tapped">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width=".70*"/>
+                                                <ColumnDefinition Width=".30*"/>
+                                            </Grid.ColumnDefinitions>
+                                           
+                                            <StackLayout Grid.Column="0">                                           
+                                            <Label  Text="{Binding category}" Margin="5" TextColor="#102b1e"  HorizontalOptions="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"/>
+                                            </StackLayout>
+                                            <StackLayout Grid.Column="1">
+                                                <Label   Text="{Binding discount}" TextColor="#102b1e" Margin="5" HorizontalOptions="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"/>
+                                             </StackLayout>
+                                           
+                                                    </Grid>
+                                                </ViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </StackLayout>
+
+                </StackLayout>
+
+
+ <!--33333....Discount on Quantity of Products-->
+
+
+                <StackLayout x:Name="three_dis_by_quan_stack" IsVisible="false">
+
+                     <Label Margin="5" Text="Discounts on Quantity Products" FontSize="Medium" FontAttributes="Bold" TextColor="Black"  />    
+
+                     <Grid BackgroundColor="#128197"   >
+                            
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".40*"/>                       
+                        <ColumnDefinition Width=".20*"/>
+                         <ColumnDefinition Width=".20*"/>
+                         <ColumnDefinition Width=".20*"/>   
+                    </Grid.ColumnDefinitions>
+                            
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="0"  HorizontalOptions="Start" BackgroundColor="White"/>
+                        
+                    <Label Grid.Row="0" Grid.Column="0" Text="Product"  TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="0"  HorizontalOptions="End" BackgroundColor="White"/>
+
+                    <Label Grid.Row="0" Grid.Column="1" Text="Min Qty"  TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="1"  HorizontalOptions="End" BackgroundColor="White"/>
+
+                     <Label Grid.Row="0" Grid.Column="2" Text="Max Qty"  TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="2"  HorizontalOptions="End" BackgroundColor="White"/>                   
+                        
+                    <Label Grid.Row="0" Grid.Column="3" Text="Discount %" TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="3"  HorizontalOptions="End" BackgroundColor="White"/>
+                  
+                    </Grid>
+
+                       <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand"  Padding="10,0,10,0">
+                        <ListView SeparatorColor="Blue"   x:Name="three_dis_by_quanListview"  >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                    <ViewCell Tapped="ViewCell_Tapped">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                 <ColumnDefinition Width=".40*"/>                       
+                                                <ColumnDefinition Width=".20*"/>
+                                                 <ColumnDefinition Width=".20*"/>
+                                                 <ColumnDefinition Width=".20*"/>
+                                            </Grid.ColumnDefinitions>
+                                            
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            
+                                            <StackLayout Grid.Column="0">                                           
+                                            <Label  Text="{Binding product}" Margin="5" TextColor="#102b1e"  HorizontalOptions="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"/>
+                                            </StackLayout>
+                                            
+                                            <StackLayout Grid.Column="1">
+                                                <Label   Text="{Binding minimum_quantity}" TextColor="#102b1e" Margin="5" HorizontalOptions="Center" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center"/>
+                                             </StackLayout>
+
+                                             <StackLayout Grid.Column="2">
+                                                <Label    Text="{Binding maximum_quantity}" TextColor="#102b1e" Margin="5" HorizontalOptions="Center" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center"/>
+                                             </StackLayout>
+
+                                             <StackLayout Grid.Column="3">
+                                                <Label   Text="{Binding discount}" TextColor="#102b1e" Margin="5" HorizontalOptions="Center" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center"/>
+                                             </StackLayout>
+                                           
+                                                    </Grid>
+                                                </ViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </StackLayout>
+
+                </StackLayout>
+
+    <!--44444....By pack products discount products-->
+
+
+                <StackLayout x:Name="four_bypackdiscount_stack" IsVisible="false">
+                    
+     <Label Margin="5" Text="Pack Items" FontSize="Medium" FontAttributes="Bold" TextColor="Black"  />    
+                    
+                     <Grid BackgroundColor="#128197"  >
+                            
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".60*"/>                       
+                        <ColumnDefinition Width=".20*"/>
+                         <ColumnDefinition Width=".20*"/>
+                           
+                    </Grid.ColumnDefinitions>
+                            
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="0"  HorizontalOptions="Start" BackgroundColor="White"/>
+                        
+                    <Label Grid.Row="0" Grid.Column="0" Text="Product"  TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="0"  HorizontalOptions="End" BackgroundColor="White"/>
+
+                    <Label Grid.Row="0" Grid.Column="1" Text="Min Qty"  TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="1"  HorizontalOptions="End" BackgroundColor="White"/>
+
+                     <Label Grid.Row="0" Grid.Column="2" Text="Max Qty"  TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="2"  HorizontalOptions="End" BackgroundColor="White"/>                   
+                        
+                   
+                    </Grid>
+
+                       <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand"  Padding="10,0,10,0">
+                        <ListView SeparatorColor="Blue"   x:Name="four_bypackdiscountListview"  >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                    <ViewCell Tapped="ViewCell_Tapped">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width=".60*"/>                       
+                                                <ColumnDefinition Width=".20*"/>
+                                                 <ColumnDefinition Width=".20*"/>
+                                            </Grid.ColumnDefinitions>
+                                            
+                                         
+                                            <StackLayout Grid.Column="0">                                           
+                                            <Label   Text="{Binding product}" Margin="5" TextColor="#102b1e"  HorizontalOptions="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"/>
+                                            </StackLayout>
+                                            
+                                            <StackLayout Grid.Column="1">
+                                                <Label    Text="{Binding minimum_quantity}" TextColor="#102b1e" HorizontalTextAlignment="Center" Margin="5" HorizontalOptions="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"/>
+                                             </StackLayout>
+
+                                             <StackLayout Grid.Column="2">
+                                                <Label    Text="{Binding maximum_quantity}" TextColor="#102b1e" Margin="5" HorizontalTextAlignment="Center" HorizontalOptions="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"/>
+                                             </StackLayout>
+                                           
+                                                    </Grid>
+                                                </ViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </StackLayout>
+
+                </StackLayout>  
+
+
+<!--44444aaaaaa....By pack products discount products-->
+
+
+                <StackLayout x:Name="fouraaa_bypackdiscount2_stack" IsVisible="false">
+
+                     <Label Margin="5" Text="Products will discount %" FontSize="Medium" FontAttributes="Bold" TextColor="Black"  />    
+
+                     <Grid BackgroundColor="#128197"  >
+                            
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".40*"/>                       
+                        <ColumnDefinition Width=".40*"/>
+                         <ColumnDefinition Width=".20*"/>
+                           
+                    </Grid.ColumnDefinitions>
+                            
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="0"  HorizontalOptions="Start" BackgroundColor="White"/>
+                        
+                    <Label Grid.Row="0" Grid.Column="0" Text="Product"  TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="0"  HorizontalOptions="End" BackgroundColor="White"/>
+
+                    <Label Grid.Row="0" Grid.Column="1" Text="Account"  TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="1"  HorizontalOptions="End" BackgroundColor="White"/>
+
+                     <Label Grid.Row="0" Grid.Column="2" Text="Discount %"  TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="2"  HorizontalOptions="End" BackgroundColor="White"/>                   
+                        
+                   
+                    </Grid>
+
+                       <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand"  Padding="10,0,10,0">
+                        <ListView SeparatorColor="Blue"   x:Name="four_bypackdiscountListview2"  >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                    <ViewCell Tapped="ViewCell_Tapped">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width=".40*"/>                       
+                                                <ColumnDefinition Width=".40*"/>
+                                                 <ColumnDefinition Width=".20*"/>
+                                            </Grid.ColumnDefinitions>
+                                                
+                                            <StackLayout Grid.Column="0">                                           
+                                            <Label   Text="{Binding product}" Margin="5" TextColor="#102b1e"  HorizontalOptions="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"/>
+                                            </StackLayout>
+                                            
+                                            <StackLayout Grid.Column="1">
+                                                <Label    Text="{Binding account}" TextColor="#102b1e" Margin="5" HorizontalOptions="Center" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                             </StackLayout>
+
+                                             <StackLayout Grid.Column="2">
+                                                <Label    Text="{Binding discount}" TextColor="#102b1e" Margin="5" HorizontalOptions="Center" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                             </StackLayout>
+                                           
+                                                    </Grid>
+                                                </ViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </StackLayout>
+
+                </StackLayout>           
+
+
+
+<!--55555....By pack products free products-->
+
+
+                <StackLayout x:Name="five_bypackfree_stack" IsVisible="false">
+                    
+                <Label Margin="5" Text="Pack Items" FontSize="Medium" FontAttributes="Bold" TextColor="Black"  />    
+                    
+                     <Grid BackgroundColor="#128197"  >
+                            
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".60*"/>                       
+                        <ColumnDefinition Width=".20*"/>
+                         <ColumnDefinition Width=".20*"/>                           
+                    </Grid.ColumnDefinitions>
+                            
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="0"  HorizontalOptions="Start" BackgroundColor="White"/>
+                        
+                    <Label Grid.Row="0" Grid.Column="0" Text="Product"  TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="0"  HorizontalOptions="End" BackgroundColor="White"/>
+
+                    <Label Grid.Row="0" Grid.Column="1" Text="Min Qty"  TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="1"  HorizontalOptions="End" BackgroundColor="White"/>
+
+                     <Label Grid.Row="0" Grid.Column="2" Text="Max Qty"  TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="2"  HorizontalOptions="End" BackgroundColor="White"/>                   
+                                           
+                    </Grid>
+
+                       <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand"  Padding="10,0,10,0">
+                        <ListView SeparatorColor="Blue"   x:Name="five_bypackfreeListview">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                    <ViewCell Tapped="ViewCell_Tapped">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width=".60*"/>                       
+                                                <ColumnDefinition Width=".20*"/>
+                                                 <ColumnDefinition Width=".20*"/>
+                                            </Grid.ColumnDefinitions>
+                                            
+                                          
+                                            
+                                            <StackLayout Grid.Column="0">                                           
+                                            <Label   Text="{Binding product}" Margin="5" TextColor="#102b1e"  HorizontalOptions="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"/>
+                                            </StackLayout>
+                                            
+                                            <StackLayout Grid.Column="1">
+                                                <Label    Text="{Binding minimum_quantity}" TextColor="#102b1e" Margin="5" HorizontalOptions="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"/>
+                                             </StackLayout>
+
+                                             <StackLayout Grid.Column="2">
+                                                <Label    Text="{Binding maximum_quantity}" TextColor="#102b1e" Margin="5" HorizontalOptions="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"/>
+                                             </StackLayout>
+                                           
+                                                    </Grid>
+                                                </ViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </StackLayout>
+
+                </StackLayout>  
+
+
+<!--55555aaaaaa....By pack products discount products-->
+
+
+                <StackLayout x:Name="fiveaaa_bypackfree2_stack" IsVisible="false">
+
+                     <Label Margin="5" Text="Products will free(gift)" FontSize="Medium" FontAttributes="Bold" TextColor="Black"  />    
+
+                     <Grid BackgroundColor="#128197"  >
+                            
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".40*"/>                       
+                        <ColumnDefinition Width=".40*"/>
+                         <ColumnDefinition Width=".20*"/>
+                           
+                    </Grid.ColumnDefinitions>
+                            
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="0"  HorizontalOptions="Start" BackgroundColor="White"/>
+                        
+                    <Label Grid.Row="0" Grid.Column="0" Text="Product gift"  TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="0"  HorizontalOptions="End" BackgroundColor="White"/>
+
+                    <Label Grid.Row="0" Grid.Column="1" Text="Account"  TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="1"  HorizontalOptions="End" BackgroundColor="White"/>
+
+                     <Label Grid.Row="0" Grid.Column="2" Text="Qty free"  TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="2"  HorizontalOptions="End" BackgroundColor="White"/>                   
+                        
+                   
+                    </Grid>
+
+                       <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand"  Padding="10,0,10,0">
+                        <ListView SeparatorColor="Blue"   x:Name="bypackfreeListview2"  >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                    <ViewCell Tapped="ViewCell_Tapped">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width=".40*"/>                       
+                                                <ColumnDefinition Width=".40*"/>
+                                                 <ColumnDefinition Width=".20*"/>
+                                            </Grid.ColumnDefinitions>
+                                                
+                                            <StackLayout Grid.Column="0">                                           
+                                            <Label   Text="{Binding product}" Margin="5" TextColor="#102b1e"  HorizontalOptions="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"/>
+                                            </StackLayout>
+                                            
+                                            <StackLayout Grid.Column="1">
+                                                <Label    Text="{Binding account}" TextColor="#102b1e" Margin="5" HorizontalOptions="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"/>
+                                             </StackLayout>
+
+                                             <StackLayout Grid.Column="2">
+                                                <Label    Text="{Binding quantity_free}" TextColor="#102b1e" Margin="5" HorizontalOptions="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"/>
+                                             </StackLayout>
+                                           
+                                                    </Grid>
+                                                </ViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </StackLayout>
+
+                </StackLayout>  
+
+  <!--666666....Unit Price Products filter by quantity-->
+
+
+                <StackLayout x:Name="six_unitpricefilter_stack" IsVisible="false">
+
+                     <Label Margin="5" Text="Sale Price filter by quantity of products" FontSize="Medium" FontAttributes="Bold" TextColor="Black"  />    
+
+                     <Grid BackgroundColor="#128197"   >
+                            
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".40*"/>                       
+                        <ColumnDefinition Width=".20*"/>
+                         <ColumnDefinition Width=".20*"/>
+                         <ColumnDefinition Width=".20*"/>   
+                    </Grid.ColumnDefinitions>
+                            
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="0"  HorizontalOptions="Start" BackgroundColor="White"/>
+                        
+                    <Label Grid.Row="0" Grid.Column="0" Text="Product"  TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="0"  HorizontalOptions="End" BackgroundColor="White"/>
+
+                    <Label Grid.Row="0" Grid.Column="1" Text="Min Qty"  TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="1"  HorizontalOptions="End" BackgroundColor="White"/>
+
+                     <Label Grid.Row="0" Grid.Column="2" Text="Max Qty"  TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="2"  HorizontalOptions="End" BackgroundColor="White"/>                   
+                        
+                    <Label Grid.Row="0" Grid.Column="3" Text="List Price" TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="3"  HorizontalOptions="End" BackgroundColor="White"/>
+                  
+                    </Grid>
+
+                       <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand"  Padding="10,0,10,0">
+                        <ListView SeparatorColor="Blue"   x:Name="six_unitpriceListview"  >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                    <ViewCell Tapped="ViewCell_Tapped">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                 <ColumnDefinition Width=".40*"/>                       
+                                                <ColumnDefinition Width=".20*"/>
+                                                 <ColumnDefinition Width=".20*"/>
+                                                 <ColumnDefinition Width=".20*"/>
+                                            </Grid.ColumnDefinitions>
+                                            
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            
+                                            <StackLayout Grid.Column="0">                                           
+                                            <Label   Text="{Binding product}" Margin="5" TextColor="#102b1e"  HorizontalOptions="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"/>
+                                            </StackLayout>
+                                            
+                                            <StackLayout Grid.Column="1">
+                                                <Label   Text="{Binding minimum_quantity}" TextColor="#102b1e" Margin="5" HorizontalOptions="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"/>
+                                             </StackLayout>
+
+                                             <StackLayout Grid.Column="2">
+                                                <Label   Text="{Binding maximum_quantity}" TextColor="#102b1e" Margin="5" HorizontalOptions="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"/>
+                                             </StackLayout>
+
+                                             <StackLayout Grid.Column="3">
+                                                <Label    Text="{Binding list_price}" TextColor="#102b1e" Margin="5" HorizontalOptions="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"/>
+                                             </StackLayout>
+                                           
+                                                    </Grid>
+                                                </ViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </StackLayout>
+
+                </StackLayout>
+                
+
+   <!--777777....Total Price Products filter by quantity-->
+
+
+                <StackLayout x:Name="sevan_totalpricefilter_stack" IsVisible="false">
+
+                    <Label Margin="5" Text="Total Price product filter by quantity" FontSize="Medium" FontAttributes="Bold" TextColor="Black"  />    
+
+                   <!--  <StackLayout BackgroundColor="White" Padding="2" >
+                        <Button  Text="Total Price product filter by quantity" HorizontalOptions="Start"  BackgroundColor="White" TextColor="Black" />    
+                       </StackLayout>-->
+
+                     <Grid BackgroundColor="#128197"   >
+                            
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".40*"/>                       
+                        <ColumnDefinition Width=".20*"/>
+                         <ColumnDefinition Width=".20*"/>
+                         <ColumnDefinition Width=".20*"/>   
+                    </Grid.ColumnDefinitions>
+                            
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="0"  HorizontalOptions="Start" BackgroundColor="White"/>
+                        
+                    <Label Grid.Row="0" Grid.Column="0" Text="Product"  TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="0"  HorizontalOptions="End" BackgroundColor="White"/>
+
+                    <Label Grid.Row="0" Grid.Column="1" Text="Min Qty"  TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="1"  HorizontalOptions="End" BackgroundColor="White"/>
+
+                     <Label Grid.Row="0" Grid.Column="2" Text="Max Qty"  TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="2"  HorizontalOptions="End" BackgroundColor="White"/>                   
+                        
+                    <Label Grid.Row="0" Grid.Column="3" Text="Total Price" TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                    <BoxView WidthRequest="1" Grid.Row="0" Grid.Column="3"  HorizontalOptions="End" BackgroundColor="White"/>
+                  
+                    </Grid>
+
+                       <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" x:Name="OrderLineList1" Padding="10,0,10,0">
+                        <ListView SeparatorColor="Blue"   x:Name="sevan_totalListview"  >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                    <ViewCell Tapped="ViewCell_Tapped">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                 <ColumnDefinition Width=".40*"/>                       
+                                                <ColumnDefinition Width=".20*"/>
+                                                 <ColumnDefinition Width=".20*"/>
+                                                 <ColumnDefinition Width=".20*"/>
+                                            </Grid.ColumnDefinitions>
+                                            
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            
+                                            <StackLayout Grid.Column="0">                                           
+                                            <Label   Text="{Binding product}" Margin="5" TextColor="#102b1e"  HorizontalOptions="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"/>
+                                            </StackLayout>
+                                            
+                                            <StackLayout Grid.Column="1">
+                                                <Label   Text="{Binding minimum_quantity}" TextColor="#102b1e" Margin="5" HorizontalOptions="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"/>
+                                             </StackLayout>
+
+                                             <StackLayout Grid.Column="2">
+                                                <Label   Text="{Binding maximum_quantity}" TextColor="#102b1e" Margin="5" HorizontalOptions="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"/>
+                                             </StackLayout>
+
+                                             <StackLayout Grid.Column="3">
+                                                <Label    Text="{Binding total_price}" TextColor="#102b1e" Margin="5" HorizontalOptions="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"/>
+                                             </StackLayout>
+                                           
+                                                    </Grid>
+                                                </ViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </StackLayout>
+
+                </StackLayout>
+
+                <BoxView HeightRequest="10" BackgroundColor="Transparent"/>
+                              
+                
+                </StackLayout>
+    </ScrollView>
+
+        
+    </ContentPage.Content>
+</pages:PopupPage>

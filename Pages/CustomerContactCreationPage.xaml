@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="SalesApp.Pages.CustomerContactCreationPage"
+                  xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+            
+               xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions">
+
+      <ContentPage.Content>
+    <ScrollView Padding="10" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+
+       
+      <Grid >
+
+                 <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="9*"/>                        
+                    </Grid.ColumnDefinitions>
+                      
+        <Frame
+        x:Name="FrameContainer"            
+        HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand"
+            Padding="0,5,0,0" CornerRadius="10" HasShadow="true" BackgroundColor="#F0EEEF">  
+
+                
+               
+         <StackLayout  Padding="10,0,0,0"    >
+
+                    <StackLayout HorizontalOptions="End">
+                        <Image Source="cancel.png" WidthRequest="25" Margin="0,5,10,0" HeightRequest="25" x:Name="closeImg"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" >
+                      <Label Text="Create" Margin="10"  TextColor="#363E4B" FontSize="Large" FontAttributes="Bold"/>
+                    </StackLayout>
+
+                    <BoxView   VerticalOptions="Center"
+           HorizontalOptions="Center"
+           HeightRequest="1"
+           WidthRequest="50" 
+           Color="#5b5d68"></BoxView>
+
+                    <BoxView Color="Transparent" HeightRequest="5"/>
+
+                    <StackLayout VerticalOptions="Center" HorizontalOptions="Center" >
+                        <controls:CircleImage x:Name="imgCreation" Aspect="AspectFill" Source="unknown.png"  WidthRequest="100" HeightRequest="100" />
+                    </StackLayout>
+
+                     <BoxView Color="Transparent" HeightRequest="5"/>
+                    
+                    <StackLayout VerticalOptions="Center" HorizontalOptions="Center" >
+                        <Button x:Name="addphotobtn" Clicked="btnaddphotoclicked" Text="Add Photo" TextColor="White" BackgroundColor="#128197"/>
+                    </StackLayout>
+
+                     <BoxView Color="Transparent" HeightRequest="5"/>
+                    
+                    <StackLayout  >
+                        <Label Text="Contact Name"   FontSize="Medium" />
+                        <Entry  x:Name="name_text" Text="" Margin="10,0,0,0" Placeholder="Sample" PlaceholderColor="DarkGray" FontSize="Medium" />
+                    </StackLayout>
+
+                    <StackLayout>
+                    <Grid Padding="0,0,0,0" x:Name="name_alert" IsVisible="false">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="8*" />
+                                </Grid.ColumnDefinitions>
+                <Image x:Name="usernameAlert"  Source="emptyAlert.png" WidthRequest="18" HeightRequest="18" HorizontalOptions="Start" Grid.Row="0" Grid.Column="0"/>
+
+                 <Label x:Name="usernameAlertText" Text="Name should not be empty." FontSize="Micro" TextColor="#ce434a" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center"/>
+                                             
+                </Grid>
+                        </StackLayout>
+                    
+                    <BoxView Color="Transparent" HeightRequest="5"/>
+                                                                                
+                    <StackLayout>
+
+                        <Label Text="Mobile"   FontSize="Medium" />
+                        <Entry x:Name="mobile_text"  Margin="10,0,0,0" Placeholder="9876543210" PlaceholderColor="DarkGray" FontSize="Medium" />
+                    </StackLayout>
+
+                    <BoxView Color="Transparent" HeightRequest="5"/>
+
+                    <StackLayout >
+
+                        <Label Text="E-Mail"   FontSize="Medium" />
+                        <Entry x:Name="mail_text"  Margin="10,0,0,0" Placeholder="1234567890" PlaceholderColor="DarkGray" FontSize="Medium" />
+                    </StackLayout>
+
+<!--                    <BoxView Color="Transparent" HeightRequest="5"/>
+
+                    <StackLayout Orientation="Vertical"  >
+
+                        <Label Text="Notes "   FontSize="Medium" />
+                        <Entry   Margin="10,0,0,0" Placeholder="Sample" PlaceholderColor="DarkGray" FontSize="Medium" />
+                    </StackLayout>
+
+                    <BoxView Color="Transparent" HeightRequest="5"/>
+
+                    <StackLayout Orientation="Vertical"  >
+
+                        <Label Text="Address "   FontSize="Medium" />
+                        <Entry   Margin="10,0,0,0" Placeholder="Sample" PlaceholderColor="DarkGray" FontSize="Medium" />
+                    </StackLayout>-->
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Padding="5, 5, 5, 0">
+
+                        
+                        <Button Text="Save" TextColor="White"  BackgroundColor="Black"  FontSize="Small" HorizontalOptions="CenterAndExpand" Clicked="btnsaveClicked"/>
+                        <Button Text="Discard" TextColor="Black" BackgroundColor="White" FontSize="Small" HorizontalOptions="CenterAndExpand" Clicked="btnDiscardClicked"/>
+                    </StackLayout>
+
+               
+                    </StackLayout>
+            </Frame> 
+                 </Grid>
+  
+    </ScrollView>
+        </ContentPage.Content>
+</pages:PopupPage>

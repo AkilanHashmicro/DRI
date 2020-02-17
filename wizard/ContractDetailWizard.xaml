@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+             x:Class="SalesApp.wizard.ContractDetailWizard">
+
+    <!--<pages:PopupPage.Animation>
+        <animations:ScaleAnimation
+      PositionIn="Bottom"
+      PositionOut="Center"
+      ScaleIn="1"
+      ScaleOut="0.7"
+      DurationIn="700"
+      EasingIn="BounceOut"/>
+    </pages:PopupPage.Animation>-->
+    
+    <ScrollView >
+        <Frame Margin="10,10" BackgroundColor="White" CornerRadius="10">                    
+            <StackLayout>
+                            
+              <StackLayout Orientation="Horizontal" HorizontalOptions="Center"  >
+                    <Label Text="Contact Details"   FontSize="Large" />
+                </StackLayout>
+
+                <BoxView   VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="1" WidthRequest="50" Color="#5b5d68"></BoxView>
+
+                <BoxView HeightRequest="10" BackgroundColor="White"/>
+                
+                <Image x:Name="contactImage" Source="" WidthRequest="80" HeightRequest="80" HorizontalOptions="CenterAndExpand"/>
+
+                <!--<BoxView HeightRequest="10" BackgroundColor="White"/>-->
+                
+                <!--<Entry x:Name="name" Text="" FontSize="Medium" HorizontalOptions="CenterAndExpand" />-->
+                <!--<Label x:Name="position" Text="" FontSize="Small" HorizontalOptions="CenterAndExpand" />-->
+                <BoxView HeightRequest="10" BackgroundColor="White"/>
+                <Grid>
+                    <!--<Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".30*"/>
+                        <ColumnDefinition Width=".55*"/>
+                        <ColumnDefinition Width=".15*"/>
+                    </Grid.ColumnDefinitions>-->
+
+                  <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                  </Grid.RowDefinitions>
+
+
+                  <StackLayout Grid.Row="1" Grid.Column="0" Padding="10,0,0,0">
+                    
+                    <Label Text="Name :" FontSize="Small" FontAttributes="Bold" />
+                    <Entry x:Name="name" Text="" FontSize="Small" Margin="10,0,0,0"  />
+ 
+                    <Label Text="Position" FontSize="Small" FontAttributes="Bold" />
+                    <Entry x:Name="position" FontSize="Small" Margin="10,0,0,0" />
+
+                    <Label Text="Email :" FontAttributes="Bold" FontSize="Small"  />
+                    <Entry x:Name="email" FontSize="Small" Margin="10,0,0,0" />
+
+                    <Label Text="Phone :" FontAttributes="Bold" FontSize="Small" />
+                    <Entry x:Name="phone" FontSize="Small" Margin="10,0,0,0" />
+                    
+                    <Label Text="Mobile :" FontAttributes="Bold" FontSize="Small" />
+                    <Entry x:Name="mobile" FontSize="Small" Margin="10,0,0,0"  />
+                  
+                  </StackLayout>
+
+                   <!--<Label Text="Email" Grid.Row="0" Grid.Column="0"/>
+                   <Label x:Name="email" Text="" Grid.Row="0" Grid.Column="1" />
+
+
+                    <Label Text="Phone " Grid.Row="1" Grid.Column="0" />
+                    <Label x:Name="phone" Text="" Grid.Row="1" Grid.Column="1"  />
+                    <StackLayout x:Name="phoneimg" Orientation="Horizontal" HorizontalOptions="EndAndExpand" Grid.Row="1" Grid.Column="2">
+                    <Image Source="phone.png" WidthRequest="20" HeightRequest="20">
+                                                        <Image.GestureRecognizers>
+                                                            <TapGestureRecognizer Command="{Binding Path=TapCommand" CommandParameter="{Binding .}" />
+                                                            <TapGestureRecognizer Tapped="phoneClicked" CommandParameter="{Binding .}" />                                                            
+                                                        </Image.GestureRecognizers>
+                     </Image>
+                     </StackLayout>
+
+                    <Label Text="Mobile" Grid.Row="2" Grid.Column="0" />
+                    <Label x:Name="mobile" Text="" Grid.Row="2" Grid.Column="1"  />
+                     <StackLayout x:Name="mobileimg" Orientation="Horizontal" HorizontalOptions="EndAndExpand" Grid.Row="2" Grid.Column="2">
+                    <Image Source="phone.png" WidthRequest="20" HeightRequest="20">
+                                                        <Image.GestureRecognizers>
+                                                            <TapGestureRecognizer Command="{Binding Path=TapCommand" CommandParameter="{Binding .}" />
+                                                            <TapGestureRecognizer Tapped="mobileClicked" CommandParameter="{Binding .}" />                                                            
+                                                        </Image.GestureRecognizers>
+                     </Image>
+                     </StackLayout>-->
+
+                    
+                </Grid>
+              <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Button Text="Save" TextColor="White" BackgroundColor="#414141" Clicked="Save_Clicked"/>
+                <Button Text="Back" TextColor="White" BackgroundColor="#414141" Clicked="Button_Clicked"/>
+              </StackLayout>
+                
+            </StackLayout>
+          
+        </Frame>
+    </ScrollView>
+</pages:PopupPage>   

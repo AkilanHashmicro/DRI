@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SalesApp.views.SaleListviewPage" 
+             Title="Sales Details"
+              xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+            >
+    <ContentPage.Content>
+         <ScrollView>
+            
+        <StackLayout BackgroundColor="#f0ebeb">
+
+                <StackLayout BackgroundColor="#363E4B" x:Name="back" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="5">
+                    <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal">
+                        <Image x:Name="backImg"  Source="barrow108.png" Margin="10,5,0,5" WidthRequest="24" HeightRequest="24" BackgroundColor="#363E4B" />
+                        <Label Text="Sales Details" x:Name="HideLbl" Margin="15,3,0,5" HorizontalOptions="Center" FontSize="Large"  TextColor="White" />
+                    </StackLayout>
+                </StackLayout>
+
+      
+                        
+         <ListView x:Name="salesOrderListView" ItemTapped="OnMenuItemTapped" HasUnevenRows="True" >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                  <StackLayout Padding=" 5,5,5,5">
+                                    <Frame Padding="2,2,2,2" HasShadow="True" CornerRadius="5" >
+                                      <StackLayout   Padding="5,5,5,5" >
+                                                
+                                        <Grid  BackgroundColor="White">
+                                          <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                          </Grid.RowDefinitions>
+                                          <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width=".80*" />
+                                            <ColumnDefinition Width=".20*" />
+                                          </Grid.ColumnDefinitions>
+                                          <Label Text="{Binding name}"  FontSize="Medium" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" VerticalTextAlignment="Center" TextColor="Black"/>
+                                          <Label Text="{Binding DateOrder}" FontSize="Small" Grid.Row="0" Grid.Column="1" HorizontalOptions="EndAndExpand" VerticalTextAlignment="Center" TextColor="Black"/>
+                                        </Grid>
+                                                
+                                        <Grid  BackgroundColor="White">
+                                          <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                          </Grid.RowDefinitions>
+                                          <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width=".60*" />
+                                            <ColumnDefinition Width=".40*" />
+                                          </Grid.ColumnDefinitions>
+                                          <Label Text="{Binding customer}" FontSize="Small" Margin="0,5,0,0" Grid.Row="0" Grid.Column="0" TextColor="Black"/>
+                                          <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" Grid.Row="0" Grid.Column="1">
+                                            <Image Source="" WidthRequest="20" HeightRequest="20">
+
+                                            </Image>
+                                            <Image Source="" WidthRequest="20" HeightRequest="20"/>
+                                            <Frame CornerRadius="5" BackgroundColor="{Binding ColorCode}" Grid.Row="0" Grid.Column="2" HeightRequest="3" Padding="0"  HorizontalOptions="EndAndExpand" >
+                                              <Label Text="{Binding FullState}"  FontSize="Micro" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                            </Frame>
+                                          </StackLayout>
+                                        </Grid>
+                                      </StackLayout>
+                                    </Frame>
+                                  </StackLayout>                                    
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    
+              </StackLayout> 
+                
+             
+            
+            </ScrollView>
+    </ContentPage.Content>
+</pages:PopupPage>

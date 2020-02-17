@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:fab="clr-namespace:FAB.Forms;assembly=FAB.Forms"            
+             x:Class="SalesApp.views.SalesOrderPage">    
+        <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="filter.png" Activated="Toolbar_Filter_Activated" Priority="4"></ToolbarItem>
+        <ToolbarItem Icon="search.png" Activated="Toolbar_Search_Activated"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <RelativeLayout>
+                <ContentView RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"  
+             RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}">
+
+                    <StackLayout>
+                    <SearchBar x:Name="searchBar"  Placeholder="Search Customer / Order number" TextColor="Black" TextChanged="SearchBar_TextChanged" HorizontalOptions="FillAndExpand" IsVisible="False"/>
+                        
+                    <ListView x:Name="salesOrderListView" ItemTapped="OnMenuItemTapped" HasUnevenRows="true" IsPullToRefreshEnabled="True" AbsoluteLayout.LayoutFlags="All"
+						  AbsoluteLayout.LayoutBounds="0,0,1,1">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout VerticalOptions="FillAndExpand" Orientation="Vertical" Padding="5,10,5,5" BackgroundColor="White">
+                                        <Grid  BackgroundColor="White" Padding="8,0,5,0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*" />
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width=".80*" />
+                                                <ColumnDefinition Width=".20*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Label Text="{Binding name}"  FontSize="Medium" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" VerticalTextAlignment="Center" TextColor="Black"/>
+                                            <Label Text="{Binding DateOrder}" FontSize="Small" Grid.Row="0" Grid.Column="1" HorizontalOptions="EndAndExpand" VerticalTextAlignment="Center" TextColor="Black"/>
+                                        </Grid>
+                                        <Grid  BackgroundColor="White" Padding="9,0,5,0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*" />
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width=".60*" />
+                                                <ColumnDefinition Width=".40*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Label Text="{Binding customer}" FontSize="Small" Grid.Row="0" Grid.Column="0" TextColor="Black"/>
+                                            <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" Grid.Row="0" Grid.Column="1">
+                                                <Label WidthRequest="20" HeightRequest="20"/>
+                                         
+                                                <Label  WidthRequest="20" HeightRequest="20"/>
+                                                <Frame CornerRadius="5" BackgroundColor="#c0392b" Grid.Row="0" Grid.Column="2" HeightRequest="3" Padding="0"  HorizontalOptions="EndAndExpand" >
+                                                    <Label Text="{Binding FullState}"  FontSize="Micro" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                                </Frame>
+                                            </StackLayout>
+                                        </Grid>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+              </StackLayout>               
+                </ContentView>
+               <Image Source="fab.png" WidthRequest="50" HeightRequest="60" IsVisible="false"
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-55}"  
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-65}" />
+            </RelativeLayout>
+         
+        </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>
+
+
